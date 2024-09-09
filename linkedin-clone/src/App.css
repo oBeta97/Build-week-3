@@ -40,3 +40,10 @@
 .read-the-docs {
   color: #888;
 }
+
+#root footer {background-color: #f4f2ee;
+color: #00000099 !important; 
+}
+#root footer p {font-size: 70%;
+  }
+#dropdown-basic {color: #00000099 !important; }

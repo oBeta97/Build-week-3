@@ -1,6 +1,7 @@
 import './App.css'
 import { BrowserRouter } from 'react-router-dom'
 import '../node_modules/bootstrap/dist/css/bootstrap.min.css'
+import MyFooter from './components/MyFooter'
 
 function App() {
 
@@ -16,7 +17,7 @@ function App() {
       </main>
 
       <footer>
-
+<MyFooter></MyFooter>
       </footer>
 
     </BrowserRouter>
