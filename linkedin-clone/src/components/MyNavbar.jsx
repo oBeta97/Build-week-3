@@ -22,24 +22,20 @@ import { CgMenuGridO } from "react-icons/cg";
 
 export const MyNavbar = () => {
   return (
-    <Navbar
-      bg="light"
-      expand="lg"
-      className="sticky-top px-5 d-flex justify-content-center align-items-center"
-    >
-      <Container className="nav d-flex justify-content-between align-items-center">
+    <Navbar bg="light" expand="lg" className="sticky-top px-4 py-2">
+      <Container className="nav d-flex  align-items-center">
         <Navbar.Brand href="#home">
           <FaLinkedin color="#0077b5" size="2rem" />
         </Navbar.Brand>
 
-        <Form inline className="mx-auto  d-none d-lg-flex ">
-          <FaSearch className="me-4" />
+        <Form className="d-flex flex-grow-2 mx-4 d-none d-md-flex align-items-center">
+          <FaSearch className="me-2" style={{ fontSize: "1.25rem" }} />
           <FormControl type="text" placeholder="Search" className="w-100 " />
         </Form>
 
-        <Navbar.Toggle aria-controls="basic-navbar-nav" />
+        <Navbar.Toggle aria-controls="basic-navbar-nav " />
         <Navbar.Collapse id="basic-navbar-nav ">
-          <Nav className="ml-auto g-3 ">
+          <Nav className="ml-auto d-flex align-items-center">
             <Nav.Link
               href="#home"
               className=" d-flex flex-column align-items-center "
@@ -81,7 +77,7 @@ export const MyNavbar = () => {
             >
               {/* //img futura */}
               <FaUserCircle />
-              <NavDropdown title="Me">
+              <NavDropdown title="Me" id="basic-nav-dropdown">
                 <NavDropdown.Item href="#profile">Profile</NavDropdown.Item>
                 <NavDropdown.Item href="#settings">Settings</NavDropdown.Item>
                 <NavDropdown.Divider />
@@ -90,13 +86,13 @@ export const MyNavbar = () => {
             </Nav>
             <Nav.Link
               href="#apps"
-              className=" border-start d-flex flex-column align-items-center  "
+              className=" border-starttext-center border-start d-none d-xl-flex align-items-center ps-3"
             >
               <CgMenuGridO className=" me-2  " />
               Per le aziende
             </Nav.Link>
             <Nav.Link
-              className="text-center"
+              className="d-none d-xl-flex align-items-center"
               style={{
                 fontSize: "0.7rem",
                 color: "#826A4C",
