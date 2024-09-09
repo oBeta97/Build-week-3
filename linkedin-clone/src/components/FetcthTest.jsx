@@ -19,13 +19,13 @@ const FetchTest = () => {
     }
 
 
-    getPosts().then((res) =>
-        console.log('FETCH RESULT', res)
-    )
+    // getPosts('me').then((res) =>
+    //     console.log('FETCH RESULT', res)
+    // )
 
-    // insertPost(meID,obj)
+    // insertPost(meID,obj).then(res => console.log('insertPost:', res))
 
-    deletePost(meID, '66deff594d0def0015cef145').then(res => console.log('del res', res))
+    deletePost(meID, '66df0b34af434b00159d8312').then(res => console.log('del res', res))
 
     // insertExperience(meID, obj).then(res => 
     //     

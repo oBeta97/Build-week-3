@@ -1,4 +1,5 @@
 import { getDeleteFetch, putPostFetch } from "./baseFetches";
+import { userIDValidation } from "./securityModules";
 
 // getProfile() -> lista generica dei profili
 // getProfile('me') -> il nostro profilo 
@@ -40,22 +41,18 @@ export const getProfile = async (userId = '') => {
 //     "__v": 0, // SERVER GENERATED
 //     "_id": "5d84937322b7b54d848eb41b", // SERVER GENERATED
 // }
+// Va utilizzato l'oggetto sopra come modello per i dati da inviare su postData.
+// ⚠️ !!! In questa chiamata va utilizzato solo l'ID come dato generato dal server !!! ⚠️
 export const updateProfile = async (userData) => {
     try {
 
-        let myProfile = await getProfile('me');
+        userIDValidation(userData._id);
 
-        if (myProfile._id === userData._id) {
-            return await putPostFetch(
-                'https://striveschool-api.herokuapp.com/api/profile/',
-                'PUT',
-                userData
-            )
-        }
-        else {
-            throw new Error('You cannot cange the experience of another users')
-        }
-
+        return await putPostFetch(
+            'https://striveschool-api.herokuapp.com/api/profile/',
+            'PUT',
+            userData
+        )
 
     } catch (err) {
         console.error('error', err)

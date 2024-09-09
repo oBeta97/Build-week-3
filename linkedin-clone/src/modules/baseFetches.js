@@ -1,5 +1,6 @@
 import API_KEY from "./apiKey";
 
+// Le fetch che dobbiamo fare sono riducibili a queste funzioni di base
 export const putPostFetch = async (URL, method, obj) => {
     try {
         let response = await fetch(URL,

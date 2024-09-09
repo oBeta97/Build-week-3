@@ -1,14 +1,27 @@
 import { getDeleteFetch, putPostFetch } from "./baseFetches";
 import { getProfile } from "./profileFetches";
+import { itemIDValidation, userIDValidation } from "./securityModules";
 
+// ⚠️ !!! SI PUO USARE "me" PER AVERE I NOSTRI POST !!! ⚠️
+// Questa fetch prende sia la lista di tutti i post che di uno singolo
+// getPosts() -> mostra tutti i post
+// getPosts('<_id>') -> mostra un singolo post
+// ⚠️ !!! Per avere i nostri post va filtrato l'array del return tramite res.user.username o res.user._id !!! ⚠️
 export const getPosts = async (postId = '') => {
 
     try {
 
-        return await getDeleteFetch(
-            'https://striveschool-api.herokuapp.com/api/posts/' + postId,
+        let posts = await getDeleteFetch(
+            'https://striveschool-api.herokuapp.com/api/posts/' + (postId !== 'me' ? postId : ""),
             'GET'
         )
+
+        if (postId === 'me') {
+            const meProfile = await getProfile('me');
+            posts = posts.filter((post) => post.user._id === meProfile._id)
+        }
+
+        return posts
 
     } catch (err) {
         console.error('error', err)
@@ -26,51 +39,44 @@ export const getPosts = async (postId = '') => {
 //   "__v": 0, // SERVER GENERATED
 //   "_id": "5d93ac84b86e220017e76ae1", // SERVER GENERATED
 // }
-
+// Va utilizzato l'oggetto sopra come modello per i dati da inviare su postData.
+// ⚠️ !!! Vanno utilizzati solo i dati NON generati dal server !!! ⚠️
 export const insertPost = async (userId, postData) => {
     try {
 
-        let myProfile = await getProfile('me');
+        userIDValidation(userId);
 
-        if (myProfile._id === userId) {
+        return await putPostFetch(
+            'https://striveschool-api.herokuapp.com/api/posts/',
+            'POST',
+            postData
+        )
 
-            return await putPostFetch(
-                'https://striveschool-api.herokuapp.com/api/posts/',
-                'POST',
-                postData
-            )
-        }
-        else {
-            throw new Error('You cannot cange the item of another users')
-        }
     }
     catch (e) {
         console.error(e);
     }
 };
 
-
+// Va utilizzato l'oggetto sopra come modello per i dati da inviare su postData.
+// ⚠️ !!! In questa chiamata va utilizzato solo l'ID come dato generato dal server !!! ⚠️
 export const updatePost = async (userId, postData) => {
 
     try {
 
-        let myProfile = await getProfile('me');
+        userIDValidation(userId);
 
-        const posts = await getPosts()
+        itemIDValidation(
+            await getPosts('me'),
+            postData._id
+        );
 
-        let myPosts = posts.filter(post => post.user._id === myProfile._id)
+        return await putPostFetch(
+            'https://striveschool-api.herokuapp.com/api/posts/' + postData._id,
+            'PUT',
+            postData
+        )
 
-        if (myProfile._id === userId && myPosts.filter((post) => post._id === postData._id).length === 1) {
-
-            return await putPostFetch(
-                'https://striveschool-api.herokuapp.com/api/posts/' + postData._id,
-                'PUT',
-                postData
-            )
-        }
-        else {
-            throw new Error('You cannot cange the item of another users')
-        }
     }
     catch (e) {
         console.error(e);
@@ -78,28 +84,24 @@ export const updatePost = async (userId, postData) => {
 
 };
 
-
+// Va utilizzato l'oggetto sopra come modello per i dati da inviare su postData.
+// ⚠️ !!! In questa chiamata va utilizzato solo l'ID come dato generato dal server !!! ⚠️
 export const deletePost = async (userId, postId) => {
-    
+
     try {
 
-        let myProfile = await getProfile('me');
-        
-        const posts = await getPosts()
+        userIDValidation(userId);
 
-        let myPosts = posts.filter(post => post.user._id === myProfile._id)
+        itemIDValidation(
+            await getPosts('me'),
+            postId
+        );
 
-        if (myProfile._id === userId && myPosts.filter((post) => post._id === postId).length === 1) {
+        return await getDeleteFetch(
+            `https://striveschool-api.herokuapp.com/api/posts/${postId}`,
+            'DELETE'
+        )
 
-            return await getDeleteFetch(
-                `https://striveschool-api.herokuapp.com/api/posts/${postId}`,
-                'DELETE'
-            )
-
-        }
-        else {
-            throw new Error('You cannot cange the item of another users')
-        }
     }
     catch (e) {
         console.error(e);
