@@ -1,3 +1,10 @@
+#root footer {background-color: #f4f2ee !important;
+  color: #00000099 !important; 
+  }
+  #root footer p {font-size: 70%;
+    }
+  #dropdown-basic {color: #00000099 !important; }
+
 .app {
   text-align: center;
 }
@@ -6,7 +13,4 @@
   padding-left: 13%;
   padding-right: 13%;
   height: 2.5rem;
-}
-.grandezza-testo {
-  font-size: 2rem;
 }
