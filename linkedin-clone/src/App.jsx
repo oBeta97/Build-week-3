@@ -1,6 +1,8 @@
-import './App.css'
-import { BrowserRouter } from 'react-router-dom'
-import '../node_modules/bootstrap/dist/css/bootstrap.min.css'
+import './App.css';
+import { BrowserRouter } from 'react-router-dom';
+import '../node_modules/bootstrap/dist/css/bootstrap.min.css';
+
+import FetcthTest from './components/FetcthTest'
 
 function App() {
 
@@ -12,7 +14,7 @@ function App() {
       </header>
 
       <main>
-
+        <FetcthTest />
       </main>
 
       <footer>
