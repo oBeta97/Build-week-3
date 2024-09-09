@@ -10,27 +10,27 @@ const MyFooter = () => {
     
       <Container fluid className="py-5">
         <Row className="text-start">
-          <Col xs={12} md={7} className='pe-0'>
+          <Col xs={12} md={7} >
             <Row>
-              <Col xs={6} md={4}>
+              <Col xs={6} md={5}>
                 <p className="mb-2">Informazioni</p>
               </Col>
               <Col xs={6} md={4}>
                 <p className="mb-2">Accessibilità</p>
               </Col>
-              <Col xs={6} md={4}>
+              <Col xs={6} md={3}>
                 <p className="mb-2">Talent Solutions</p>
               </Col>
-              <Col xs={6} md={4}>
+              <Col xs={6} md={5}>
                 <p className="mb-2">Informazioni sulla community professionale</p>
               </Col>
               <Col xs={6} md={4}>
                 <p className="mb-2">Carriera</p>
               </Col>
-              <Col xs={6} md={4}>
+              <Col xs={6} md={3}>
                 <p className="mb-2">Soluzioni di marketing</p>
               </Col>
-              <Col xs={6} md={4}>
+              <Col xs={6} md={5}>
                 <Dropdown>
                   <Dropdown.Toggle
                     variant="link"
@@ -48,19 +48,19 @@ const MyFooter = () => {
               <Col xs={6} md={4}>
                 <p className="mb-2">Opzioni per gli annunci pubblicitari</p>
               </Col>
-              <Col xs={6} md={4}>
+              <Col xs={6} md={3}>
                 <p className="mb-2">Pubblicità</p>
               </Col>
-              <Col xs={6} md={4}>
+              <Col xs={6} md={5}>
                 <p className="mb-2">Sales Solutions</p>
               </Col>
               <Col xs={6} md={4}>
                 <p className="mb-2">Mobile</p>
               </Col>
-              <Col xs={6} md={4}>
+              <Col xs={6} md={3}>
                 <p className="mb-2">Piccole imprese</p>
               </Col>
-              <Col xs={6} md={4}>
+              <Col xs={6} md={5}>
                 <p className="mb-2">Centro sicurezza</p>
               </Col>
             </Row>
