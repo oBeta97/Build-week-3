@@ -5,3 +5,12 @@
     }
   #dropdown-basic {color: #00000099 !important; }
 
+.app {
+  text-align: center;
+}
+
+.nav {
+  padding-left: 13%;
+  padding-right: 13%;
+  height: 2.5rem;
+}
