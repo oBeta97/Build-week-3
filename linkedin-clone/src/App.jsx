@@ -4,7 +4,8 @@ import "../node_modules/bootstrap/dist/css/bootstrap.min.css";
 import "bootstrap/dist/css/bootstrap.min.css";
 import MyFooter from './components/MyFooter'
 import { MyNavbar } from "./components/MyNavbar";
-import FetcthTest from './components/FetcthTest'
+import { Col, Container, Row } from "react-bootstrap";
+import ProfilePage from "./components/ProfilPage";
 
 
 function App() {
@@ -12,16 +13,28 @@ function App() {
     <BrowserRouter>
       <div className="app">
 
-        <header>
-          <MyNavbar />
+        <header className="bg-light p-0">
+          <Container>
+            <Row className="justify-content-center">
+              <Col xs={11}>
+                <MyNavbar />
+              </Col>
+            </Row>
+          </Container>
         </header>
 
-        <main>
-          <FetcthTest />
+        <main style={{ backgroundColor: "#F4F2EE" }}>
+          <ProfilePage />
         </main>
 
         <footer>
-          <MyFooter></MyFooter>
+          <Container>
+            <Row className="justify-content-center">
+              <Col xs={11}>
+                <MyFooter />
+              </Col>
+            </Row>
+          </Container>
         </footer>
 
       </div>

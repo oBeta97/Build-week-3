@@ -9,8 +9,15 @@
   text-align: center;
 }
 
-.nav {
-  padding-left: 13%;
-  padding-right: 13%;
-  height: 2.5rem;
+nav {
+  height: 4.5rem;
+}
+
+.dropdown-toggle{
+  padding: 0 0.5em !important;
+}
+
+small,
+.dropdown-toggle{
+  font-weight: 300 !important;
 }
