@@ -1,7 +1,9 @@
+import { getDeleteFetch, putPostFetch } from "./baseFetches";
+import { userIDValidation } from "./securityModules";
+
 // getProfile() -> lista generica dei profili
 // getProfile('me') -> il nostro profilo 
 // getProfile('<userId>') -> dati di un profilo specifico
-
 
 // IPOTESI DI CHIAMATA
 // getProfile()
@@ -11,23 +13,11 @@
 
 export const getProfile = async (userId = '') => {
     try {
-        let response = await fetch(
+
+        return await getDeleteFetch(
             'https://striveschool-api.herokuapp.com/api/profile/' + userId,
-            {
-                method: "GET",
-                headers: {
-                    Authorization: 'Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJfaWQiOiI2NmRlYmI2OTRkMGRlZjAwMTVjZWYxMDIiLCJpYXQiOjE3MjU4NzMwMDEsImV4cCI6MTcyNzA4MjYwMX0.jen6eAIErfA8GNhPDGgw0BwoY4NoYo4kbHo2PdlyOTM',
-                }
-            }
+            'GET'
         )
-
-
-        if (response.ok) {
-            let profileData = await response.json()
-            return profileData;
-        } else {
-            throw new Error('Error in fetching songs')
-        }
 
     } catch (err) {
         console.error('error', err)
@@ -51,26 +41,18 @@ export const getProfile = async (userId = '') => {
 //     "__v": 0, // SERVER GENERATED
 //     "_id": "5d84937322b7b54d848eb41b", // SERVER GENERATED
 // }
+// Va utilizzato l'oggetto sopra come modello per i dati da inviare su postData.
+// ⚠️ !!! In questa chiamata va utilizzato solo l'ID come dato generato dal server !!! ⚠️
 export const updateProfile = async (userData) => {
     try {
-        let response = await fetch(
-            'https://striveschool-api.herokuapp.com/api/profile/',
-            {
-                method: "PUT",
-                body: JSON.stringify(userData),
-                headers: {
-                    'Content-Type': 'application/json',
-                    Authorization: 'Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJfaWQiOiI2NmRlYmI2OTRkMGRlZjAwMTVjZWYxMDIiLCJpYXQiOjE3MjU4NzMwMDEsImV4cCI6MTcyNzA4MjYwMX0.jen6eAIErfA8GNhPDGgw0BwoY4NoYo4kbHo2PdlyOTM',
-                }
-            }
-        )
 
-        if (response.ok) {
-            let updatedProfile = await response.json()
-            return updatedProfile;
-        } else {
-            throw new Error('Error in fetching songs')
-        }
+        userIDValidation(userData._id);
+
+        return await putPostFetch(
+            'https://striveschool-api.herokuapp.com/api/profile/',
+            'PUT',
+            userData
+        )
 
     } catch (err) {
         console.error('error', err)
