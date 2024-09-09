@@ -1,17 +1,18 @@
-import './App.css';
-import { BrowserRouter } from 'react-router-dom';
-import '../node_modules/bootstrap/dist/css/bootstrap.min.css';
 
+import "./App.css";
+import { BrowserRouter } from "react-router-dom";
+import "../node_modules/bootstrap/dist/css/bootstrap.min.css";
+import { MyNavbar } from "./components/MyNavbar";
+import "bootstrap/dist/css/bootstrap.min.css";
 import FetcthTest from './components/FetcthTest'
 
-function App() {
 
+function App() {
   return (
     <BrowserRouter>
-
-      <header>
-
-      </header>
+      <div className="app">
+        <header><MyNavbar /></header>
+        
 
       <main>
         <FetcthTest />
@@ -20,9 +21,10 @@ function App() {
       <footer>
 
       </footer>
+ </div>
 
     </BrowserRouter>
-  )
+  );
 }
 
-export default App
+export default App;
