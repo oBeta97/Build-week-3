@@ -18,7 +18,7 @@ function App() {
 <MyFooter></MyFooter>
       </footer>
 
-      <footer></footer>
+    
     </BrowserRouter>
   );
 }

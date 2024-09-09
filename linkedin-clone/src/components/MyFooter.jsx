@@ -1,12 +1,16 @@
 import React from 'react';
 import { Container, Row, Col, Dropdown } from 'react-bootstrap';
-
+import {
+    FaShieldAlt,
+    FaCog,
+    FaQuestionCircle
+  } from "react-icons/fa";
 const MyFooter = () => {
   return (
-    <footer style={{ backgroundColor: '#f8f9fa' }}>
+    
       <Container fluid className="py-5">
         <Row className="text-start">
-          <Col xs={12} md={7}>
+          <Col xs={12} md={7} className='pe-0'>
             <Row>
               <Col xs={6} md={4}>
                 <p className="mb-2">Informazioni</p>
@@ -61,26 +65,29 @@ const MyFooter = () => {
               </Col>
             </Row>
           </Col>
-          <Col xs={12} md={3}>
-            <Row>
-              <Col xs={2}>
-                <p>Icn1</p>
+          <Col xs={12} md={3} >
+            <Row >
+              <Col xs={1} md={2} className='d-flex justify-content-end p-1 fs-3 pe-0'>
+              <FaQuestionCircle  />
+             
               </Col>
-              <Col xs={10}>
+              <Col xs={11} md={10}>
                 <p className="mb-1 fs-6">Domande?</p>
                 <p>Visita il nostro Centro assistenza.</p>
               </Col>
-              <Col xs={2}>
-                <p>Icn2</p>
+              <Col xs={1} md={2} className='d-flex justify-content-end p-1 fs-3 pe-0'>
+              <FaCog  />
+              
               </Col>
-              <Col xs={10}>
+              <Col xs={11} md={10}>
                 <p className="mb-1 fs-6">Gestisci il tuo account e la tua privacy</p>
                 <p>Vai alle impostazioni</p>
               </Col>
-              <Col xs={2}>
-                <p>Icn3</p>
+              <Col xs={1} md={2} className='d-flex justify-content-end p-1 fs-3 pe-0'>
+              <FaShieldAlt />
+             
               </Col>
-              <Col xs={10}>
+              <Col xs={11} md={10}>
                 <p className="mb-1 fs-6">Trasparenza sui contenuti consigliati</p>
                 <p>Scopri di più sui contenuti consigliati.</p>
               </Col>
@@ -114,7 +121,7 @@ const MyFooter = () => {
           </Col>
         </Row>
       </Container>
-    </footer>
+    
   );
 };
 
