@@ -23,7 +23,7 @@ import { CgMenuGridO } from "react-icons/cg";
 export const MyNavbar = () => {
   return (
     <Navbar bg="light" expand="lg" className="sticky-top px-4 py-2">
-      <Container className="nav d-flex  align-items-center">
+      <Container>
         <Navbar.Brand href="#home">
           <FaLinkedin color="#0077b5" size="2rem" />
         </Navbar.Brand>
