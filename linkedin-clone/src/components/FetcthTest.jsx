@@ -1,22 +1,31 @@
 import { deleteExperience, getExperiences, insertExperience, updateExperience } from "../modules/experiencesFetches";
+import { deletePost, getPosts, insertPost } from "../modules/postFetches";
 
 const FetchTest = () => {
 
-    // da ricontrollare le delete!!!
+
+
+    // deleteExperience
+    // deletePost
+
+
 
     const meID = "66debb694d0def0015cef102";
     const giancarloID = '6551f7f3c55e7e0018f83c12';
 
     const obj =
     {
-        "role": "Full Stackkz345678234658asdasdasd72678455!",
-        "company": "FizzBuzz",
-        "startDate": "2022-06-16",
-        "endDate": "2023-06-16", // può essere null
-        "description": "Implementing new features",
-        "area": "Milan",
-        // "_id": '66deeac14d0def0015cef135'
+        "text": "Questo è un nuovo post", // L'unica proprietà richiesta!
     }
+
+
+    getPosts().then((res) =>
+        console.log('FETCH RESULT', res)
+    )
+
+    // insertPost(meID,obj)
+
+    deletePost(meID, '66deff594d0def0015cef145').then(res => console.log('del res', res))
 
     // insertExperience(meID, obj).then(res => 
     //     
@@ -27,9 +36,9 @@ const FetchTest = () => {
     // )
 
 
-    deleteExperience(meID, "66deed754d0def0015cef13b").then((res) =>
-        console.log('FETCH RESULT', res)
-    )
+    // deleteExperience(meID, "66deed754d0def0015cef13b").then((res) =>
+    //     console.log('FETCH RESULT', res)
+    // )
 
     return (
         <p>CIAO!</p>

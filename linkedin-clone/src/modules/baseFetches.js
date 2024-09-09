@@ -39,8 +39,12 @@ export const getDeleteFetch = async (URL, method) => {
         )
 
         if (response.ok) {
+            if (method === "DELETE")
+                return response.ok;
+
             let item = await response.json();
             return item;
+
         } else {
             throw new Error('Error in fetching songs')
         }
