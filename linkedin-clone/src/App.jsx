@@ -7,11 +7,13 @@ import "bootstrap/dist/css/bootstrap.min.css";
 function App() {
   return (
     <BrowserRouter>
-      <header></header>
-      <MyNavbar />
-      <main></main>
+      <div className="app">
+        <header></header>
+        <MyNavbar />
+        <main></main>
 
-      <footer></footer>
+        <footer></footer>
+      </div>
     </BrowserRouter>
   );
 }
