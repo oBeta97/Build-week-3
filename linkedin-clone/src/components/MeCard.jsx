@@ -6,21 +6,25 @@ import ButtonList from "./MeCard/ButtonList";
 import OpenToCard from "./MeCard/OpenToCard";
 import { useEffect, useState } from "react";
 import { getProfile } from "../modules/profileFetches";
+import { useParams } from "react-router-dom";
 
 
 const MeCard = () => {
+
+    const URLParams = useParams();
 
     const [profileData, setProfileData] = useState(null);
     const [isLoading, setIsLoading] = useState(true)
 
     useEffect(() => {
-        getProfile('me').
+        console.log(URLParams);
+        getProfile(URLParams.profileId).
             then((fetchRes) => {
                 setProfileData(fetchRes)
                 setIsLoading(false);
                 console.log(fetchRes);
             })
-    }, [])
+    }, [URLParams])
 
     return (
         <Container fluid className="rounded-3 border overflow-hidden p-0 bg-white">

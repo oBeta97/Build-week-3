@@ -21,10 +21,14 @@ const ProfileInfo = (props) => {
                     </div>
                 </div>
                 <p className="text-start p-0 m-0">{props.profileData.username}</p>
-                <p className="text-start text-secondary p-0 m-0">{props.profileData.area} ·
-                    <span className="text-primary">Informazioni di contatto</span>
-                </p>
-                <p className="text-start text-primary fw-bold"> X collegamenti</p>
+                {props.profileData.area ? (
+
+                    <p className="text-start text-secondary p-0 m-0">{props.profileData.area} ·
+                        <span className="text-primary">Informazioni di contatto</span>
+                    </p>
+                ) : ""
+                }
+                <p className="text-start text-secondary fw-bold"> {props.profileData.bio}</p>
             </Col>
             <Col>
                 <div className="d-flex align-items-center gap-2">
