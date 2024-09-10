@@ -1,5 +1,7 @@
 import { Col, Container, Row } from "react-bootstrap";
 import RandomCard from "./RandomCard";
+import CardEsperienza from "./CardEsperienza";
+
 
 const ProfilePage = () => {
     return (
@@ -9,6 +11,7 @@ const ProfilePage = () => {
                 <Row>
                   <Col xs={12} md={9}>
                     <RandomCard />
+               <CardEsperienza></CardEsperienza>
                   </Col>
                   <Col xs={12} md={3}>
                     <RandomCard />
