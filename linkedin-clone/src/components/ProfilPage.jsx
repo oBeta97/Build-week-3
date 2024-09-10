@@ -1,7 +1,9 @@
 import { Col, Container, Row } from "react-bootstrap";
-import RandomCard from "./RandomCard";
 import MeCard from "./MeCard";
 import ResourcesCard from "./ResourcesCard";
+import FormationCard from "./FormationCard";
+import LenguageAndURL from "./LenguageAndURL";
+import AdsComp from "./AdsComp";
 import ActivityCard from "./MeCard/ActivityCard";
 
 const ProfilePage = () => {
@@ -10,14 +12,16 @@ const ProfilePage = () => {
             <Row className="justify-content-center">
               <Col xs={12} sm={11}>
                 <Row>
-                  <Col xs={12} md={9} className="d-flex flex-column gap-2">
+                  <Col xs={12} md={8} className="d-flex flex-column gap-2">
                     {/* <RandomCard /> */}
                     <MeCard />
                     <ResourcesCard />
+                    <FormationCard />
                     <ActivityCard />
                   </Col>
-                  <Col xs={12} md={3}>
-                    <RandomCard />
+                  <Col xs={12} md={4} className="d-flex flex-column gap-2">
+                    <LenguageAndURL />
+                    <AdsComp />
                   </Col>
                 </Row>
               </Col>
