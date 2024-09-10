@@ -9,7 +9,7 @@ import OpenToCard from "./MeCard/OpenToCard";
 const MeCard = () => {
 
     return (
-        <Container fluid className="rounded-3 border border-secondary overflow-hidden p-0">
+        <Container fluid className="rounded-3 border overflow-hidden p-0 bg-white">
             <LandscapeImg />
             <Row className="my-3 justify-content-between">
                 <Col xs={4} className="position-relative">
@@ -32,7 +32,7 @@ const MeCard = () => {
                     <FaPencil />
                 </Col>
             </Row>
-            <Container fluid className="px-3 pb-3">
+            <Container fluid className="px-4 pb-4">
                 <ProfileInfo />
                 <ButtonList />
                 <OpenToCard />
