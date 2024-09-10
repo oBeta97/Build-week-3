@@ -2,6 +2,7 @@ import { Col, Container, Row } from "react-bootstrap";
 import RandomCard from "./RandomCard";
 import MeCard from "./MeCard";
 import ResourcesCard from "./ResourcesCard";
+import FormationCard from "./FormationCard";
 
 const ProfilePage = () => {
     return (
@@ -13,6 +14,7 @@ const ProfilePage = () => {
                     {/* <RandomCard /> */}
                     <MeCard />
                     <ResourcesCard />
+                    <FormationCard />
                   </Col>
                   <Col xs={12} md={3}>
                     <RandomCard />
