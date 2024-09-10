@@ -4,6 +4,7 @@ import ResourcesCard from "./ResourcesCard";
 import FormationCard from "./FormationCard";
 import LenguageAndURL from "./LenguageAndURL";
 import AdsComp from "./AdsComp";
+import ActivityCard from "./MeCard/ActivityCard";
 
 const ProfilePage = () => {
     return (
@@ -16,6 +17,7 @@ const ProfilePage = () => {
                     <MeCard />
                     <ResourcesCard />
                     <FormationCard />
+                    <ActivityCard />
                   </Col>
                   <Col xs={12} md={4} className="d-flex flex-column gap-2">
                     <LenguageAndURL />
