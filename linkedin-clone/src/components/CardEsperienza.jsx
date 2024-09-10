@@ -1,7 +1,7 @@
 import Button from 'react-bootstrap/Button';
 import Card from 'react-bootstrap/Card';
 import Modal from 'react-bootstrap/Modal';
-import { Row, Col, Form } from 'react-bootstrap';
+import { Row, Col, Form, Container } from 'react-bootstrap';
 import { FaPen, FaPlus, FaBriefcase } from 'react-icons/fa';
 import { deleteExperience, getExperiences, insertExperience, updateExperience } from '../modules/experiencesFetches';
 import React, { useState, useEffect } from 'react';
@@ -158,12 +158,12 @@ function CardEsperienza() {
                 </Card.Title>
 
                 {esperienza.map((data) => (
-                    <div className="mt-3" key={data._id}>
-                        <Row>
-                            <Col xs={1} className="d-flex align-items-start justify-content-end pt-2">
-                                <FaBriefcase />
+                    <Container fluid className="mt-3 " key={data._id}>
+                        <Row className='w-100'>
+                            <Col xs={2} className="d-flex align-items-start justify-content-end pt-2">
+                                <FaBriefcase  />
                             </Col>
-                            <Col xs={10} className="text-start">
+                            <Col xs={8} className="text-start">
                                 <p className="mb-0">{data.role}</p>
                                 <p className="mb-0">{data.company}</p>
                                 <p className="mb-0">
@@ -171,7 +171,7 @@ function CardEsperienza() {
                                 </p>
                                 <p className="mb-0">{data.area}</p>
                             </Col>
-                            <Col xs={1} className="text-start">
+                            <Col xs={2} className="text-start">
                                 {isEditing && (
                                     <FaPen
                                         className="ms-3"
@@ -181,7 +181,7 @@ function CardEsperienza() {
                             </Col>
                         </Row>
                         <hr />
-                    </div>
+                    </Container>
                 ))}
             </Card.Body>
 
