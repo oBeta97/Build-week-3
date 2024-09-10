@@ -21,3 +21,13 @@ small,
 .dropdown-toggle{
   font-weight: 300 !important;
 }
+
+.img-fit{
+  object-fit: cover !important;
+  max-height: inherit;
+  max-width: inherit;
+}
+
+.border-dashed {
+  border-style: dashed;
+}
