@@ -1,18 +1,16 @@
 import "./App.css";
-import { BrowserRouter } from "react-router-dom";
+import { BrowserRouter, Route, Routes } from "react-router-dom";
 import "../node_modules/bootstrap/dist/css/bootstrap.min.css";
 import "bootstrap/dist/css/bootstrap.min.css";
-import MyFooter from './components/MyFooter'
+import MyFooter from "./components/MyFooter";
 import { MyNavbar } from "./components/MyNavbar";
 import { Col, Container, Row } from "react-bootstrap";
 import ProfilePage from "./components/ProfilPage";
-
 
 function App() {
   return (
     <BrowserRouter>
       <div className="app">
-
         <header className="bg-light p-0">
           <Container>
             <Row className="justify-content-center">
@@ -24,7 +22,9 @@ function App() {
         </header>
 
         <main style={{ backgroundColor: "#F4F2EE" }}>
-          <ProfilePage />
+          <Routes>
+            <Route path="/profile/:profileId" element={<ProfilePage />} />
+          </Routes>
         </main>
 
         <footer>
@@ -36,7 +36,6 @@ function App() {
             </Row>
           </Container>
         </footer>
-
       </div>
     </BrowserRouter>
   );
