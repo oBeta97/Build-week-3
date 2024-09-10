@@ -6,7 +6,6 @@ import MyFooter from "./components/MyFooter";
 import { MyNavbar } from "./components/MyNavbar";
 import { Col, Container, Row } from "react-bootstrap";
 import ProfilePage from "./components/ProfilPage";
-
 function App() {
   return (
     <BrowserRouter>
