@@ -5,6 +5,8 @@ import FormationCard from "./FormationCard";
 import LenguageAndURL from "./LenguageAndURL";
 import AdsComp from "./AdsComp";
 import ActivityCard from "./MeCard/ActivityCard";
+import RandomCard from "./RandomCard";
+import Analisi from "./Analisi";
 
 const ProfilePage = () => {
     return (
@@ -18,6 +20,7 @@ const ProfilePage = () => {
                     <ResourcesCard />
                     <FormationCard />
                     <ActivityCard />
+                    <Analisi />
                   </Col>
                   <Col xs={12} md={4} className="d-flex flex-column gap-2">
                     <LenguageAndURL />
