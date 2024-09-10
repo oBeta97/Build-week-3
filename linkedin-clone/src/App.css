@@ -1,9 +1,13 @@
-#root footer {background-color: #f4f2ee !important;
-  color: #00000099 !important; 
-  }
-  #root footer p {font-size: 70%;
-    }
-  #dropdown-basic {color: #00000099 !important; }
+#root footer {
+  background-color: #f4f2ee !important;
+  color: #00000099 !important;
+}
+#root footer p {
+  font-size: 70%;
+}
+#dropdown-basic {
+  color: #00000099 !important;
+}
 
 .app {
   text-align: center;
@@ -13,11 +17,11 @@ nav {
   height: 4.5rem;
 }
 
-.dropdown-toggle{
+.dropdown-toggle {
   padding: 0 0.5em !important;
 }
 
 small,
-.dropdown-toggle{
+.dropdown-toggle {
   font-weight: 300 !important;
 }

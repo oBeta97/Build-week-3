@@ -6,7 +6,6 @@ import MyFooter from "./components/MyFooter";
 import { MyNavbar } from "./components/MyNavbar";
 import { Col, Container, Row } from "react-bootstrap";
 import ProfilePage from "./components/ProfilPage";
-import CardComponent from "./components/CardComponent";
 
 function App() {
   return (
@@ -24,7 +23,6 @@ function App() {
 
         <main style={{ backgroundColor: "#F4F2EE" }}>
           <ProfilePage />
-          <CardComponent />
         </main>
 
         <footer>
