@@ -21,3 +21,8 @@ small,
 .dropdown-toggle{
   font-weight: 300 !important;
 }
+
+
+.extra-small {
+  font-size: 12px !important;
+}
