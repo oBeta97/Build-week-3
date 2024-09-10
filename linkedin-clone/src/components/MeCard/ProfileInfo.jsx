@@ -2,12 +2,12 @@ import { Col, Row } from "react-bootstrap";
 import { FaUserCheck } from "react-icons/fa";
 
 // Da aggiungere le props con i dati che arrivano dalle API
-const ProfileInfo = () => {
+const ProfileInfo = (props) => {
     return (
         <Row>
             <Col xs={8}>
-                <div className="d-flex align-items-center">
-                    <h3 className="p-0 m-0">Paolo Pellizzari</h3>
+                <div className="d-flex align-items-center gap-2">
+                    <h3 className="p-0 m-0">{`${props.profileData.name} ${props.profileData.surname}`}</h3>
                     <div
                         className="
                         border-2 border-dashed border-primary rounded-pill
@@ -20,11 +20,11 @@ const ProfileInfo = () => {
                         <span >Verifica ora!</span>
                     </div>
                 </div>
-                <p className="text-start p-0 m-0">Paolo</p>
-                <p className="text-start text-secondary p-0 m-0">Vicenza, Veneto, Italia ·
+                <p className="text-start p-0 m-0">{props.profileData.username}</p>
+                <p className="text-start text-secondary p-0 m-0">{props.profileData.area} ·
                     <span className="text-primary">Informazioni di contatto</span>
                 </p>
-                <p className="text-start text-primary fw-bold"> 4 collegamenti</p>
+                <p className="text-start text-primary fw-bold"> X collegamenti</p>
             </Col>
             <Col>
                 <div className="d-flex align-items-center gap-2">
