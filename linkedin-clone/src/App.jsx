@@ -36,7 +36,6 @@ function App() {
             </Row>
           </Container>
         </footer>
-
       </div>
     </BrowserRouter>
   );
