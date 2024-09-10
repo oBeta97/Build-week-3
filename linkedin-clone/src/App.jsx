@@ -25,6 +25,7 @@ function App() {
 
         <main style={{ backgroundColor: "#F4F2EE" }}>
           <ProfilePage />
+          <CardComponent />
         </main>
 
         <footer>
