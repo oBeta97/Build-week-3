@@ -36,8 +36,8 @@ function CardEsperienza() {
         if (user) {
             deleteExperience(user._id, modificaEsperienza._id)
             .then((data) => {
-                // handleCloseEditModal();
-                // location.reload();
+                handleCloseEditModal();
+                location.reload();
                 console.log(data);
             })
             .catch((error) => console.error('Error deleting experiences:', error));
