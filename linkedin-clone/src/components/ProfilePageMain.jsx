@@ -1,4 +1,5 @@
 import Analisi from "./Analisi";
+import CardEsperienza from "./CardEsperienza";
 import ConsigliatiPerTe from "./ConsigliatiPerte";
 import FormationCard from "./FormationCard";
 import MeCard from "./MeCard";
@@ -14,6 +15,7 @@ const ProfilePageMain = () => {
             <FormationCard />
             <ActivityCard />
             <Analisi />
+            <CardEsperienza />
         </>
     )
 };
