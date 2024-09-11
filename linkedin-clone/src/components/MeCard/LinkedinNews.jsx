@@ -5,7 +5,7 @@ import { IoIosArrowDown } from "react-icons/io";
 export const LinkedinNews = () => {
   return (
     <Container
-      className="border rounded p-4 mt-2"
+      className="border rounded p-4"
       style={{ backgroundColor: "#ffffff" }}
     >
       <Row>

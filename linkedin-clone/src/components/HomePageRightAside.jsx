@@ -5,7 +5,7 @@ import { LinkedinNews } from "./MeCard/LinkedinNews";
 const HomePageRightAside = () => {
   return (
     <>
-      {<LinkedinNews />}
+      <LinkedinNews />
       <AdsComp />
       <MyFooterHome />
     </>
