@@ -20,16 +20,15 @@ const ConsigliatiPerTe = () => {
       <Row>
         <Col ms={12} md={12} lg={6} className="mb-3">
           <Container className="border rounded p-3 h-100">
-            <Row>
-              <Col xs={2} className="d-flex justify-content-center">
+            <Row className="mb-1">
+              <Col xs={4} sm={3} md={3} lg={4} className="d-flex justify-content-center">
                 <img
                   src="https://img.freepik.com/vettori-premium/un-disegno-di-una-macchina-fotografica-con-un-obiettivo-che-dice-il-meglio_410516-87079.jpg"
                   alt="Camera icon"
                   className="img-fluid"
-                  style={{ height: "50px", maxWidth: "60px" }}
                 />
               </Col>
-              <Col xs={10}>
+              <Col xs={8} sm={9} lg={8}>
                 <h6 className="fw-bold  small text-start">
                   Aggiungi una foto al tuo profilo per aiutare gli altri a
                   riconoscerti
@@ -59,16 +58,15 @@ const ConsigliatiPerTe = () => {
 
         <Col ms={12} md={12} lg={6} className="mb-3 ">
           <Container className="border rounded p-3 h-100">
-            <Row>
-              <Col xs={2} className="d-flex justify-content-center">
+            <Row className="mb-1">
+              <Col xs={4} sm={3} md={3} lg={4} className="d-flex justify-content-center">
                 <img
                   src="https://static.vecteezy.com/ti/vettori-gratis/p1/25433492-illustrazione-vettore-di-nero-valigia-nel-piatto-design-gratuito-vettoriale.jpg"
                   alt="Summary icon"
                   className="img-fluid "
-                  style={{ height: "50px", maxWidth: "60px" }}
                 />
               </Col>
-              <Col xs={10}>
+              <Col xs={8} sm={9} lg={8}>
                 <h6 className="fw-bold small text-start mt-">
                   Dove lavori attualmente?
                 </h6>

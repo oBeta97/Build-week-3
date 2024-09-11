@@ -4,7 +4,7 @@ import Modal from 'react-bootstrap/Modal';
 import { Row, Col, Form, Container } from 'react-bootstrap';
 import { FaPen, FaPlus, FaBriefcase } from 'react-icons/fa';
 import { deleteExperience, getExperiences, insertExperience, updateExperience } from '../modules/experiencesFetches';
-import React, { useState, useEffect } from 'react';
+import { useState, useEffect } from 'react';
 import { getProfile } from '../modules/profileFetches';
 
 function CardEsperienza() {
@@ -114,7 +114,6 @@ function CardEsperienza() {
 
     const handleSaveChanges = () => {
         handleCloseEditModal();
-
     };
 
     const handleChange = (e, property) => {
