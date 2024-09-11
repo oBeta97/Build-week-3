@@ -22,19 +22,19 @@ const ResourcesCard = () => {
             <Row>
                 <Container>
                     <Row className="py-3 border-bottom">
-                        <Col xs={1}>
+                        <Col xs={2}>
                             <FaUsers className="fs-3" />
                         </Col>
-                        <Col>
+                        <Col xs={10}>
                             <p className="p-0 m-0 fw-bold">La mia rete</p>
                             <p className="p-0 m-0">Salva e gestisci i tuoi collegamenti e interessi.</p>
                         </Col>
                     </Row>
                     <Row className="py-3 border-bottom">
-                        <Col xs={1}>
+                        <Col xs={2}>
                             <FaBookmark className="fs-3" />
                         </Col>
-                        <Col>
+                        <Col xs={10}>
                             <p className="p-0 m-0 fw-bold">Elementi salvati</p>
                             <p className="p-0 m-0">Monitora le tue offerte di lavoro, i corsi e gli articoli.</p>
                         </Col>
