@@ -51,7 +51,7 @@ const MeCard = () => {
 
     return (
         <>
-            <Container fluid className="rounded-3 border overflow-hidden p-0 bg-white">
+            <Container  className="rounded-3 border overflow-hidden p-0 bg-white">
 
                 {
                     isLoading ? (
@@ -62,7 +62,7 @@ const MeCard = () => {
                         <>
                             <LandscapeImg />
                             <Row className="my-3 justify-content-between">
-                                <Col xs={4} className="position-relative">
+                                <Col xs={6} className="position-relative">
                                     <img
                                         src={profileData.image}
                                         className="
@@ -77,8 +77,8 @@ const MeCard = () => {
                                         }}
                                     />
                                 </Col>
-                                <Col xs={1}>
-                                    <Button variant="white" className="p-0 m-0">
+                                <Col xs={6} className="d-flex justify-content-end">
+                                    <Button variant="white" className="p-0 m-0 pe-3">
                                         <FaPencil onClick={() => setShowChangeProfileModal(true)} />
                                     </Button>
                                 </Col>
