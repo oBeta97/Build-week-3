@@ -1,4 +1,3 @@
-import React from "react";
 import { Container, Row, Col, Button } from "react-bootstrap";
 import { BsHandThumbsUp } from "react-icons/bs";
 import { MdOutlineInsertComment } from "react-icons/md";
@@ -83,3 +82,6 @@ export const CardCentraleHome = () => {
     </Container>
   );
 };
+
+
+export default CardCentraleHome;

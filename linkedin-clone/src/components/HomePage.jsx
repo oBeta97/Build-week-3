@@ -4,8 +4,6 @@ import HomePageLeftAside from "./HomePageLeftAside";
 import Posts from "./Posts";
 import HomePageRightAside from "./HomePageRightAside";
 
-import { CardCentraleHome } from "./CardCentraleHome";
-
 const HomePage = () => {
     return (
         <MyBaseContainer>

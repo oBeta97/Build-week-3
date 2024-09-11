@@ -1,7 +1,7 @@
 import { useEffect, useState } from "react";
 import { getPosts } from "../modules/postFetches";
 import { Spinner } from "react-bootstrap";
-
+import CardCentraleHome from './CardCentraleHome'
 
 const Posts = () => {
 
@@ -33,7 +33,7 @@ const Posts = () => {
                         <span className="visually-hidden">Loading...</span>
                     </Spinner>
                 ) : (
-                    postList.map((post) => <p key={post._id}>{post.text}</p>)
+                    postList.map((post) => <CardCentraleHome />)
                 )
             }
         </>
