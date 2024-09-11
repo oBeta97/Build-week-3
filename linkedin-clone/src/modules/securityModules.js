@@ -5,11 +5,11 @@ import { getProfile } from "./profileFetches";
 // verrà intercettato dal try-catch presente nelle funzioni delle fetch
 
 
-export const userIDValidation = async (userID) =>{
+export const userValidation = async (user) =>{
     let myProfile = await getProfile('me');
 
-    if (myProfile._id !== userID)
-        throw new Error('User ID non valido!');
+    if (myProfile._id !== user._id && myProfile.username !== user.username)
+        throw new Error('User ID o username non valido!');
 
     return myProfile;
 }

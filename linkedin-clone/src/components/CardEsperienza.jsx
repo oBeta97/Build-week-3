@@ -34,7 +34,7 @@ function CardEsperienza() {
 
     const cancella = () => {
         if (user) {
-            deleteExperience(user._id, modificaEsperienza._id)
+            deleteExperience(user, modificaEsperienza._id)
             .then((data) => {
                 handleCloseEditModal();
                 location.reload();
@@ -45,8 +45,8 @@ function CardEsperienza() {
 
     };
 
-    const inserisci = (userId, experienceData) => {
-        insertExperience(userId, experienceData)
+    const inserisci = (user, experienceData) => {
+        insertExperience(user, experienceData)
             .then((data) => {
                 const result = [...esperienza, data];
                 console.log(result);
@@ -58,8 +58,8 @@ function CardEsperienza() {
     };
 
 
-    const modifica = (userId, experienceData) => {
-        updateExperience(userId, experienceData)
+    const modifica = (user, experienceData) => {
+        updateExperience(user, experienceData)
             .then((data) => {
 
                 handleCloseEditModal();
@@ -135,13 +135,13 @@ function CardEsperienza() {
 
     const handleSubmit = (e) => {
         e.preventDefault();
-        inserisci(user._id, nuovaEsperienza);
+        inserisci(user, nuovaEsperienza);
 
     };
 
     const handleSubmitmodifica = (e) => {
         e.preventDefault();
-        modifica(user._id, modificaEsperienza);
+        modifica(user, modificaEsperienza);
 
     };
 
