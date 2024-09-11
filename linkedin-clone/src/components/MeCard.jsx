@@ -61,7 +61,7 @@ const MeCard = ({ lite = false }) => {
                         </Spinner>
                     ) : (
                         <>
-                            <LandscapeImg lite={lite} />
+                            <LandscapeImg lite={lite} myProfile={URLParams.profileId === 'me'} />
                             <Row className="my-3 justify-content-between">
                                 <Col xs={6} className="position-relative">
                                     <img
@@ -81,18 +81,22 @@ const MeCard = ({ lite = false }) => {
                                 {
                                     !lite ? (
                                         <Col xs={6} className="d-flex justify-content-end">
-                                            <Button variant="white" className="p-0 m-0 pe-3">
-                                                <FaPencil onClick={() => setShowChangeProfileModal(true)} />
-                                            </Button>
+                                            {
+                                                URLParams.profileId === 'me' ? (
+                                                    <Button variant="white" className="p-0 m-0 pe-3">
+                                                        <FaPencil onClick={() => setShowChangeProfileModal(true)} />
+                                                    </Button>
+                                                ) : ""
+                                            }
                                         </Col>
                                     ) : ""
                                 }
 
                             </Row>
                             <Container fluid className="px-4 pb-4">
-                                <ProfileInfo lite={lite} profileData={profileData} />
+                                <ProfileInfo lite={lite} profileData={profileData} myProfile={URLParams.profileId === 'me'} />
                                 {
-                                    !lite ? (
+                                    !lite && URLParams.profileId === 'me' ? (
                                         <>
                                             <ButtonList />
                                             <OpenToCard />

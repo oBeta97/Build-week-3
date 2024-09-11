@@ -7,7 +7,7 @@ const LandscapeImg = (props) => {
     return (
         <Row className="position-relative" style={{ maxHeight: "15em" }}>
             {
-                !props.lite ? (
+                !props.lite && props.myProfile ? (
                     <div
                         className="
                         position-absolute top-0 end-0 mt-3 me-4 p-0

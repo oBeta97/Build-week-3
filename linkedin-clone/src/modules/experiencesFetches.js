@@ -10,7 +10,7 @@ import { itemIDValidation, userValidation } from "./securityModules";
 export const getExperiences = async (userId = '', expId = '') => {
     try {
 
-        if (userId === '') {
+        if (userId === '' || userId === 'me') {
             const temp = await getProfile('me');
             userId = temp._id;
         }

@@ -9,7 +9,7 @@ const ProfileInfo = (props) => {
                 <div className="d-flex flex-column flex-md-row align-items-start gap-2">
                     <h3 className="p-0 m-0">{`${props.profileData.name} ${props.profileData.surname}`}</h3>
                     {
-                        !props.lite ? (
+                        !props.lite && props.myProfile ? (
                             <div
                                 className="
                                     border-2 border-dashed border-primary rounded-pill
@@ -26,17 +26,18 @@ const ProfileInfo = (props) => {
 
                 </div>
                 <p className="text-start p-0 m-0">{props.profileData.username}</p>
-                {props.profileData.area ? (
-                    <p className="text-start text-secondary p-0 m-0">{props.profileData.area}
-                        {
-                            !props.lite ? (
-                                <>
-                                    · <span className="text-primary">Informazioni di contatto</span>
-                                </>
-                            ) : ""
-                        }
-                    </p>
-                ) : ""
+                {
+                    props.profileData.area ? (
+                        <p className="text-start text-secondary p-0 m-0">{props.profileData.area}
+                            {
+                                !props.lite && props.myProfile ? (
+                                    <>
+                                        · <span className="text-primary">Informazioni di contatto</span>
+                                    </>
+                                ) : ""
+                            }
+                        </p>
+                    ) : ""
                 }
 
                 {
