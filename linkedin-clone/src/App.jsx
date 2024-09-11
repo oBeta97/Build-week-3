@@ -4,8 +4,8 @@ import "../node_modules/bootstrap/dist/css/bootstrap.min.css";
 import "bootstrap/dist/css/bootstrap.min.css";
 import MyFooter from './components/MyFooter'
 import { MyNavbar } from "./components/MyNavbar";
-import { Col, Container, Row } from "react-bootstrap";
 import ProfilePage from "./components/ProfilPage";
+import MyBaseContainer from "./components/MyBaseContainer";
 
 
 function App() {
@@ -14,13 +14,9 @@ function App() {
       <div className="app">
 
         <header className="bg-light p-0">
-          <Container>
-            <Row className="justify-content-center">
-              <Col xs={11}>
-                <MyNavbar />
-              </Col>
-            </Row>
-          </Container>
+          <MyBaseContainer>
+            <MyNavbar />
+          </MyBaseContainer>
         </header>
 
         <main style={{ backgroundColor: "#F4F2EE" }}>
@@ -28,17 +24,13 @@ function App() {
         </main>
 
         <footer>
-          <Container>
-            <Row className="justify-content-center">
-              <Col xs={11}>
-                <MyFooter />
-              </Col>
-            </Row>
-          </Container>
+          <MyBaseContainer>
+            <MyFooter />
+          </MyBaseContainer>
         </footer>
 
       </div>
-    </BrowserRouter>
+    </BrowserRouter >
   );
 }
 

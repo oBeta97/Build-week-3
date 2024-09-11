@@ -1,31 +1,17 @@
-import { Col, Container, Row } from "react-bootstrap";
-import MeCard from "./MeCard";
-import ResourcesCard from "./ResourcesCard";
-import FormationCard from "./FormationCard";
-import LenguageAndURL from "./LenguageAndURL";
-import AdsComp from "./AdsComp";
+import MyBaseContainer from "./MyBaseContainer";
+import TwoCol from "./TwoCol";
+import ProfilePageMain from "./ProfilePageMain";
+import ProfilePageAside from "./ProfilePageAside";
 
 const ProfilePage = () => {
-    return (
-        <Container className="py-4">
-            <Row className="justify-content-center">
-              <Col xs={12} sm={11}>
-                <Row>
-                  <Col xs={12} md={8} className="d-flex flex-column gap-2">
-                    {/* <RandomCard /> */}
-                    <MeCard />
-                    <ResourcesCard />
-                    <FormationCard />
-                  </Col>
-                  <Col xs={12} md={4} className="d-flex flex-column gap-2">
-                    <LenguageAndURL />
-                    <AdsComp />
-                  </Col>
-                </Row>
-              </Col>
-            </Row>
-          </Container>
-    );
+  return (
+    <MyBaseContainer>
+      <TwoCol
+        left={<ProfilePageMain />}
+        right={<ProfilePageAside />}
+      />
+    </MyBaseContainer>
+  );
 };
 
 export default ProfilePage;
