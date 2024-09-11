@@ -1,5 +1,5 @@
 import { getDeleteFetch, putPostFetch } from "./baseFetches";
-import { userIDValidation } from "./securityModules";
+import { userValidation } from "./securityModules";
 
 // getProfile() -> lista generica dei profili
 // getProfile('me') -> il nostro profilo 
@@ -46,7 +46,7 @@ export const getProfile = async (userId = '') => {
 export const updateProfile = async (userData) => {
     try {
 
-        userIDValidation(userData._id);
+        userValidation(userData);
 
         return await putPostFetch(
             'https://striveschool-api.herokuapp.com/api/profile/',

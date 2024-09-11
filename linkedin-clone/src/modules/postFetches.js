@@ -1,6 +1,6 @@
 import { getDeleteFetch, putPostFetch } from "./baseFetches";
 import { getProfile } from "./profileFetches";
-import { itemIDValidation, userIDValidation } from "./securityModules";
+import { itemIDValidation, userValidation } from "./securityModules";
 
 // ⚠️ !!! SI PUO USARE "me" PER AVERE I NOSTRI POST !!! ⚠️
 // Questa fetch prende sia la lista di tutti i post che di uno singolo
@@ -41,10 +41,10 @@ export const getPosts = async (postId = '') => {
 // }
 // Va utilizzato l'oggetto sopra come modello per i dati da inviare su postData.
 // ⚠️ !!! Vanno utilizzati solo i dati NON generati dal server !!! ⚠️
-export const insertPost = async (userId, postData) => {
+export const insertPost = async (user, postData) => {
     try {
 
-        userIDValidation(userId);
+        userValidation(user);
 
         return await putPostFetch(
             'https://striveschool-api.herokuapp.com/api/posts/',
@@ -60,11 +60,11 @@ export const insertPost = async (userId, postData) => {
 
 // Va utilizzato l'oggetto sopra come modello per i dati da inviare su postData.
 // ⚠️ !!! In questa chiamata va utilizzato solo l'ID come dato generato dal server !!! ⚠️
-export const updatePost = async (userId, postData) => {
+export const updatePost = async (user, postData) => {
 
     try {
 
-        userIDValidation(userId);
+        userValidation(user);
 
         itemIDValidation(
             await getPosts('me'),
@@ -86,11 +86,11 @@ export const updatePost = async (userId, postData) => {
 
 // Va utilizzato l'oggetto sopra come modello per i dati da inviare su postData.
 // ⚠️ !!! In questa chiamata va utilizzato solo l'ID come dato generato dal server !!! ⚠️
-export const deletePost = async (userId, postId) => {
+export const deletePost = async (user, postId) => {
 
     try {
 
-        userIDValidation(userId);
+        userValidation(user);
 
         itemIDValidation(
             await getPosts('me'),
