@@ -38,10 +38,10 @@ export const CardCentraleHome = ({ post, isMyPost, profileData }) => {
               </Col>
               <Col xs={7} className="d-flex flex-column">
                 <Link
-                to={'/profile/' + profileData._id} 
-                className="text-start text-decoration-none text-black fw-bold lh-sm m-0 p-0"
+                  to={'/profile/' + profileData._id}
+                  className="text-start text-decoration-none text-black fw-bold lh-sm m-0 p-0"
                 >
-                {post.username}
+                  {post.username}
                 </Link>
                 <span className="text-muted">867 follower</span>
                 <span className="text-muted ">
@@ -68,13 +68,18 @@ export const CardCentraleHome = ({ post, isMyPost, profileData }) => {
               </Col>
             </Row>
             <Row>
-              <Col xs="12">
-                <img
-                  src="https://placedog.net/640/480?random"
-                  alt="img"
-                  className="img-fluid "
-                />
-              </Col>
+              {
+                post.image ? (
+                  <Col xs="12">
+                    <img
+                      src={post.image}
+                      alt="img"
+                      className="img-fluid "
+                    />
+                  </Col>
+
+                ) : ""
+              }
             </Row>
             <Row>
               <Col xs="12" className=" d-flex justify-content-start text-muted my-2">

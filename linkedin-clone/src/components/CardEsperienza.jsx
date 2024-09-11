@@ -21,14 +21,14 @@ function CardEsperienza() {
     const URLParams = useParams()
 
     useEffect(() => {
-        getProfile('me')
+        getProfile(URLParams.profileId)
             .then((data) => {
                 setUser(data);
                 console.log(data);
             })
             .catch((error) => console.error('Error fetching profile:', error));
 
-        getExperiences()
+        getExperiences(URLParams.profileId)
             .then((data) => {
                 setEsperienza(data);
                 console.log(data);
@@ -166,32 +166,34 @@ function CardEsperienza() {
                     </div>
                 </Card.Title>
 
-                {esperienza.map((data) => (
-                    <Container fluid className="mt-3" key={data._id}>
-                        <Row className='w-100'>
-                            <Col xs={2} className="d-flex align-items-start justify-content-end pt-2">
-                                <FaBriefcase />
-                            </Col>
-                            <Col xs={8} className="text-start">
-                                <p className="mb-0">{data.role}</p>
-                                <p className="mb-0">{data.company}</p>
-                                <p className="mb-0">
-                                    {new Date(data.startDate).toLocaleDateString('it-IT')} - {new Date(data.endDate).toLocaleDateString('it-IT')}
-                                </p>
-                                <p className="mb-0">{data.area}</p>
-                            </Col>
-                            <Col xs={2} className="text-start">
-                                {isEditing && (
-                                    <FaPen
-                                        className="ms-3"
-                                        onClick={() => handleShowEditModal(data)}
-                                    />
-                                )}
-                            </Col>
-                        </Row>
-                        <hr />
-                    </Container>
-                ))}
+                {
+                    esperienza.map((data) => (
+                        <Container fluid className="mt-3" key={data._id}>
+                            <Row className='w-100'>
+                                <Col xs={2} className="d-flex align-items-start justify-content-end pt-2">
+                                    <FaBriefcase />
+                                </Col>
+                                <Col xs={8} className="text-start">
+                                    <p className="mb-0">{data.role}</p>
+                                    <p className="mb-0">{data.company}</p>
+                                    <p className="mb-0">
+                                        {new Date(data.startDate).toLocaleDateString('it-IT')} - {new Date(data.endDate).toLocaleDateString('it-IT')}
+                                    </p>
+                                    <p className="mb-0">{data.area}</p>
+                                </Col>
+                                <Col xs={2} className="text-start">
+                                    {isEditing && (
+                                        <FaPen
+                                            className="ms-3"
+                                            onClick={() => handleShowEditModal(data)}
+                                        />
+                                    )}
+                                </Col>
+                            </Row>
+                            <hr />
+                        </Container>
+                    ))
+                }
             </Card.Body>
 
 
