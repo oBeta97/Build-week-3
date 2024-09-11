@@ -5,8 +5,8 @@ import { FaUserCheck } from "react-icons/fa";
 const ProfileInfo = (props) => {
     return (
         <Row>
-            <Col xs={8} md={12}>
-                <div className="d-flex align-items-center gap-2">
+            <Col xs={12} lg={8}>
+                <div className="d-flex flex-column flex-md-row align-items-start gap-2">
                     <h3 className="p-0 m-0">{`${props.profileData.name} ${props.profileData.surname}`}</h3>
                     <div
                         className="
@@ -30,7 +30,7 @@ const ProfileInfo = (props) => {
                 }
                 <p className="text-start text-secondary fw-bold mb-1"> {props.profileData.bio}</p>
             </Col>
-            <Col xs={4} md={12}> 
+            <Col xs={12} lg={4}> 
                 <div className="d-flex align-items-center gap-2 mb-1">
                     <img
                         src="https://media.licdn.com/dms/image/v2/C4E0BAQHYgix-Ynux1A/company-logo_100_100/company-logo_100_100/0/1646830188798/epicodeschool_logo?e=1733961600&v=beta&t=nrLWWjKHe6sHcWyfi1ckaHtt3l7c2mBfc1Oz3-0T1ZU"

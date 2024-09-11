@@ -29,7 +29,7 @@ const FormationCard = () => {
             <Row>
                 <Container>
                     <Row className="py-3 border-bottom">
-                        <Col xs={1}>
+                        <Col xs={2}>
                             <img
                                 src="https://media.licdn.com/dms/image/v2/C4E0BAQHYgix-Ynux1A/company-logo_100_100/company-logo_100_100/0/1646830188798/epicodeschool_logo?e=1733961600&v=beta&t=nrLWWjKHe6sHcWyfi1ckaHtt3l7c2mBfc1Oz3-0T1ZU"
                                 alt="scholl img"
