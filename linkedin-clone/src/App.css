@@ -43,3 +43,49 @@ small,
 .grey {
   color: #8a8a8a !important;
 }
+
+
+.bottoni {
+  width: 100%;
+}
+
+.button-list { 
+  display: flex;
+  flex-wrap: wrap;
+}
+
+/* Small devices (landscape phones, 576px and up)*/
+@media (min-width: 576px) {
+  .bottoni{
+    width: 150px;
+    height: 80px;
+     
+    } 
+}
+
+
+/* Medium devices (tablets, 768px and up)*/
+@media (min-width: 768px) {
+ 
+
+
+
+}
+
+/* Large devices (desktops, 992px and up)*/
+@media (min-width: 992px) {
+ 
+
+ 
+
+  
+}
+
+/* Extra large devices (large desktops, 1200px and up)*/
+@media (min-width: 1200px) {
+  
+}
+
+@media (min-width: 1400px) { 
+
+}
