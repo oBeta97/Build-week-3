@@ -5,7 +5,7 @@ import FormationCard from "./FormationCard";
 import LenguageAndURL from "./LenguageAndURL";
 import AdsComp from "./AdsComp";
 import ActivityCard from "./MeCard/ActivityCard";
-import RandomCard from "./RandomCard";
+// import RandomCard from "./RandomCard";
 import Analisi from "./Analisi";
 
 const ProfilePage = () => {
