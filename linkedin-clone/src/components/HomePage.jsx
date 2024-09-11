@@ -5,15 +5,15 @@ import Posts from "./Posts";
 import HomePageRightAside from "./HomePageRightAside";
 
 const HomePage = () => {
-    return (
-        <MyBaseContainer>
-            <ThreeCol 
-                left={<HomePageLeftAside /> }
-                center={<Posts />}
-                right={<HomePageRightAside />}
-            />
-        </MyBaseContainer>
-    );
-}
+  return (
+    <MyBaseContainer>
+      <ThreeCol
+        left={<HomePageLeftAside />}
+        center={<Posts />}
+        right={<HomePageRightAside />}
+      />
+    </MyBaseContainer>
+  );
+};
 
 export default HomePage;
