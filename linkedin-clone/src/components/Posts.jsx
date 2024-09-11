@@ -3,6 +3,7 @@ import { getPosts } from "../modules/postFetches";
 import { Spinner } from "react-bootstrap";
 import CardCentraleHome from './CardCentraleHome'
 import { getProfile } from "../modules/profileFetches";
+import CreatePost from "./CreatePost";
 
 const Posts = () => {
 
@@ -24,7 +25,7 @@ const Posts = () => {
         setMyPostList(posts);
     }
 
-    const getAllProfile = async () =>{
+    const getAllProfile = async () => {
         const profiles = await getProfile();
         console.log(profiles);
         setProfileList(profiles);
@@ -63,16 +64,22 @@ const Posts = () => {
                         <span className="visually-hidden">Loading...</span>
                     </Spinner>
                 ) : (
-                    postList
-                        .sort(sortPost)
-                        .map((post) =>
-                            <CardCentraleHome
-                                key={post._id}
-                                post={post}
-                                isMyPost={myPostList.filter(mypost => mypost._id === post._id).length === 1}
-                                profileData = {profileList.filter(profile => profile._id === post.user._id)[0]}
-                            />
-                        )
+                    <>
+                        <CreatePost />
+                        {
+                            postList
+                                .sort(sortPost)
+                                .map((post) =>
+                                    <CardCentraleHome
+                                        key={post._id}
+                                        post={post}
+                                        isMyPost={myPostList.filter(mypost => mypost._id === post._id).length === 1}
+                                        profileData={profileList.filter(profile => profile._id === post.user._id)[0]}
+                                    />
+                                )
+                        }
+                    </>
+
                 )
             }
         </>

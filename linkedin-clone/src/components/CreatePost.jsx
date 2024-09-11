@@ -4,7 +4,6 @@ import {
   Container,
   Form,
   Modal,
-  NavDropdown,
   Row,
   Spinner,
 } from "react-bootstrap";
@@ -17,6 +16,7 @@ import { CiFaceSmile } from "react-icons/ci";
 import { RiGalleryLine } from "react-icons/ri";
 import { MdWorkspacePremium } from "react-icons/md";
 import { FaPlus } from "react-icons/fa6";
+import { insertPost } from "../modules/postFetches";
 
 const CreatePost = () => {
   const [user, setUser] = useState(null);
@@ -29,8 +29,12 @@ const CreatePost = () => {
   };
 
   const handlePost = () => {
-    alert(`Post pubblicato: ${postContent}`);
-    setPostContent("");
+    insertPost( user,
+      {
+        text: postContent
+      }
+    ).then(res => alert('post inserito, ricarica la pagina'))
+
     setShow(false);
   };
 
