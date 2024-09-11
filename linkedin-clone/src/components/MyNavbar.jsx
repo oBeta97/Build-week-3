@@ -17,13 +17,16 @@ import {
   FaUserCircle,
 } from "react-icons/fa";
 import { CgMenuGridO } from "react-icons/cg";
+import { Link } from "react-router-dom";
 
 export const MyNavbar = () => {
   return (
     <Navbar bg="light" expand="lg" className="sticky-top">
       <Container>
-        <Navbar.Brand href="#home">
-          <FaLinkedin color="#0077b5" size="2.5rem" />
+        <Navbar.Brand>
+          <Link to={'/'}>
+            <FaLinkedin color="#0077b5" size="2.5rem" />
+          </Link>
         </Navbar.Brand>
 
         <Form className="d-flex d-none d-md-flex align-items-center">
@@ -99,7 +102,11 @@ export const MyNavbar = () => {
               {/* //img futura */}
               <FaUserCircle style={{ fontSize: "1.6rem" }} />
               <NavDropdown title="Me" id="basic-nav-dropdown" className="p-0">
-                <NavDropdown.Item href="#profile">Profile</NavDropdown.Item>
+                <NavDropdown.Item>
+                  <Link to={'/profile/me'} className="text-decoration-none text-dark">
+                    Profile
+                  </Link>
+                </NavDropdown.Item>
                 <NavDropdown.Item href="#settings">Settings</NavDropdown.Item>
                 <NavDropdown.Divider />
                 <NavDropdown.Item href="#logout">Sign Out</NavDropdown.Item>
