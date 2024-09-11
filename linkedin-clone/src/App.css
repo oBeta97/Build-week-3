@@ -45,9 +45,6 @@ small,
 }
 
 
-.bottoni {
-  width: 100%;
-}
 
 .button-list { 
   display: flex;
@@ -57,9 +54,8 @@ small,
 /* Small devices (landscape phones, 576px and up)*/
 @media (min-width: 576px) {
   .bottoni{
-    width: 150px;
-    height: 80px;
-     
+   
+     font-size: 0.8em !important;
     } 
 }
 
