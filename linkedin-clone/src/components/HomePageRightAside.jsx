@@ -1,14 +1,15 @@
 import AdsComp from "./AdsComp";
 import MyFooterHome from "./MyFooterHome";
-
+import { LinkedinNews } from "./MeCard/LinkedinNews";
 
 const HomePageRightAside = () => {
-    return (
-        <>
-            <AdsComp />
-            <MyFooterHome />
-        </>
-    );
+  return (
+    <>
+      {<LinkedinNews />}
+      <AdsComp />
+      <MyFooterHome />
+    </>
+  );
 };
 
 export default HomePageRightAside;
