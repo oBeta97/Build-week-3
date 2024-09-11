@@ -1,9 +1,13 @@
-#root footer {background-color: #f4f2ee !important;
-  color: #00000099 !important; 
-  }
-  #root footer p {font-size: 70%;
-    }
-  #dropdown-basic {color: #00000099 !important; }
+#root footer {
+  background-color: #f4f2ee !important;
+  color: #00000099 !important;
+}
+#root footer p {
+  font-size: 70%;
+}
+#dropdown-basic {
+  color: #00000099 !important;
+}
 
 .app {
   text-align: center;
@@ -13,16 +17,16 @@ nav {
   height: 4.5rem;
 }
 
-.dropdown-toggle{
+.dropdown-toggle {
   padding: 0 0.5em !important;
 }
 
 small,
-.dropdown-toggle{
+.dropdown-toggle {
   font-weight: 300 !important;
 }
 
-.img-fit{
+.img-fit {
   object-fit: cover !important;
   max-height: inherit;
   max-width: inherit;
@@ -30,4 +34,12 @@ small,
 
 .border-dashed {
   border-style: dashed;
+}
+
+.extra-small {
+  font-size: 12px !important;
+}
+
+.grey {
+  color: #8a8a8a !important;
 }
