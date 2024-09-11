@@ -1,13 +1,13 @@
 import MyBaseContainer from "./MyBaseContainer";
 import ThreeCol from "./ThreeCol";
-import MeCard from "./MeCard"
+import HomePageLeftAside from "./HomePageLeftAside";
 
 
 const HomePage = () => {
     return (
         <MyBaseContainer>
             <ThreeCol 
-                left={<MeCard lite /> }
+                left={<HomePageLeftAside /> }
                 center=""
                 right=""
             />
