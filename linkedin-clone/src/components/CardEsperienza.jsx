@@ -6,6 +6,7 @@ import { FaPen, FaPlus, FaBriefcase } from 'react-icons/fa';
 import { deleteExperience, getExperiences, insertExperience, updateExperience } from '../modules/experiencesFetches';
 import { useState, useEffect } from 'react';
 import { getProfile } from '../modules/profileFetches';
+import { useParams } from 'react-router-dom';
 
 function CardEsperienza() {
     const [esperienza, setEsperienza] = useState([]);
@@ -16,6 +17,9 @@ function CardEsperienza() {
     const [selectedExperience, setSelectedExperience] = useState(null);
     const [nuovaEsperienza, setNuovaesperienza] = useState({ role: "", company: "", area: "", startDate: "", endDate: "", description: "" })
     const [modificaEsperienza, setModificaesperienza] = useState({ role: "", company: "", area: "", startDate: "", endDate: "", description: "", _id: "" })
+
+    const URLParams = useParams()
+
     useEffect(() => {
         getProfile('me')
             .then((data) => {
@@ -35,12 +39,12 @@ function CardEsperienza() {
     const cancella = () => {
         if (user) {
             deleteExperience(user, modificaEsperienza._id)
-            .then((data) => {
-                handleCloseEditModal();
-                location.reload();
-                console.log(data);
-            })
-            .catch((error) => console.error('Error deleting experiences:', error));
+                .then((data) => {
+                    handleCloseEditModal();
+                    location.reload();
+                    console.log(data);
+                })
+                .catch((error) => console.error('Error deleting experiences:', error));
         }
 
     };
@@ -151,32 +155,38 @@ function CardEsperienza() {
                 <Card.Title className="d-flex justify-content-between align-items-center">
                     <p className="mb-0">Esperienza</p>
                     <div>
-                        <FaPlus onClick={handleShowAddModal} />
-                        {!isEditing && <FaPen className="ms-3" onClick={toggleEditMode} />}
+                        {
+                            URLParams.profileId === 'me' ? (
+                                <>
+                                    <FaPlus onClick={handleShowAddModal} />
+                                    {!isEditing && <FaPen className="ms-3" onClick={toggleEditMode} />}
+                                </>
+                            ) : ""
+                        }
                     </div>
                 </Card.Title>
 
                 {esperienza.map((data) => (
-    <Container fluid className="mt-3" key={data._id}>
-        <Row className='w-100'>
-            <Col xs={2} className="d-flex align-items-start justify-content-end pt-2">
-                <FaBriefcase />
-            </Col>
-            <Col xs={8} className="text-start">
-                <p className="mb-0">{data.role}</p>
-                <p className="mb-0">{data.company}</p>
-                <p className="mb-0">
-                    {new Date(data.startDate).toLocaleDateString('it-IT')} - {new Date(data.endDate).toLocaleDateString('it-IT')}
-                </p>
-                <p className="mb-0">{data.area}</p>
-            </Col>
-            <Col xs={2} className="text-start">
-                {isEditing && (
-                    <FaPen
-                        className="ms-3"
-                        onClick={() => handleShowEditModal(data)}
-                    />
-                )}
+                    <Container fluid className="mt-3" key={data._id}>
+                        <Row className='w-100'>
+                            <Col xs={2} className="d-flex align-items-start justify-content-end pt-2">
+                                <FaBriefcase />
+                            </Col>
+                            <Col xs={8} className="text-start">
+                                <p className="mb-0">{data.role}</p>
+                                <p className="mb-0">{data.company}</p>
+                                <p className="mb-0">
+                                    {new Date(data.startDate).toLocaleDateString('it-IT')} - {new Date(data.endDate).toLocaleDateString('it-IT')}
+                                </p>
+                                <p className="mb-0">{data.area}</p>
+                            </Col>
+                            <Col xs={2} className="text-start">
+                                {isEditing && (
+                                    <FaPen
+                                        className="ms-3"
+                                        onClick={() => handleShowEditModal(data)}
+                                    />
+                                )}
                             </Col>
                         </Row>
                         <hr />
