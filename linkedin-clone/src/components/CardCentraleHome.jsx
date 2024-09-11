@@ -24,7 +24,7 @@ export const CardCentraleHome = ({ post, isMyPost, profileData }) => {
 
           <Container
             fluid
-            className="border rounded p-4 mt-2"
+            className="border rounded p-4 mb-2"
             style={{ backgroundColor: "#ffffff" }}
           >
             {/* prima row */}
