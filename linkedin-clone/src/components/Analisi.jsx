@@ -3,7 +3,6 @@ import { FaEye, FaArrowRight } from "react-icons/fa";
 import { IoSearch } from "react-icons/io5";
 import { VscGraph } from "react-icons/vsc";
 import { IoPeople } from "react-icons/io5";
-import { IconBase } from "react-icons/lib";
 
 const Analisi = () => {
   return (

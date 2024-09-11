@@ -1,3 +1,4 @@
+import CreatePost from "./CreatePost";
 import MyBaseContainer from "./MyBaseContainer";
 import ThreeCol from "./ThreeCol";
 import HomePageLeftAside from "./HomePageLeftAside";
