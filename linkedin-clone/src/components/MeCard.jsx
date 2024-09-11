@@ -108,10 +108,7 @@ const MeCard = () => {
 
                                 <Form.Label htmlFor="profileName">Email</Form.Label>
                                 <Form.Control type="email" id="profileName" value={profileData.email} onChange={(e) => handleModalChange(e.target.value, 'email')} />
-
-                                <Form.Label htmlFor="profileName">Username</Form.Label>
-                                <Form.Control type="text" id="profileName" value={profileData.username} onChange={(e) => handleModalChange(e.target.value, 'username')} />
-
+                                    
                                 <Form.Label htmlFor="profileName">Bio</Form.Label>
                                 <Form.Control type="text" id="profileName" value={profileData.bio} onChange={(e) => handleModalChange(e.target.value, 'bio')} />
 
@@ -135,6 +132,7 @@ const MeCard = () => {
                 </Modal.Footer>
             </Modal>
         </>
+
 
     );
 };
