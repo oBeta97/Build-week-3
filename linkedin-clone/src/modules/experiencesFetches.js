@@ -1,6 +1,6 @@
 import { getDeleteFetch, putPostFetch } from "./baseFetches";
 import { getProfile } from "./profileFetches";
-import { itemIDValidation, userIDValidation } from "./securityModules";
+import { itemIDValidation, userValidation } from "./securityModules";
 
 // ⚠️ !!! NON SI PUO USARE "ME" PER AVERE LE NOSTRE EXPERIENCES !!! ⚠️
 // Questa fetch prende sia la lista di tutte le experience che una singola
@@ -10,7 +10,7 @@ import { itemIDValidation, userIDValidation } from "./securityModules";
 export const getExperiences = async (userId = '', expId = '') => {
     try {
 
-        if (userId === '') {
+        if (userId === '' || userId === 'me') {
             const temp = await getProfile('me');
             userId = temp._id;
         }
@@ -44,13 +44,13 @@ export const getExperiences = async (userId = '', expId = '') => {
 // Va utilizzato l'oggetto sopra come modello per i dati da inviare su experienceData.
 // ⚠️ !!! Vanno utilizzati solo i dati non generati dal server !!! ⚠️
 
-export const insertExperience = async (userId, experienceData) => {
+export const insertExperience = async (user, experienceData) => {
     try {
 
-        userIDValidation(userId);
+        userValidation(user);
 
         return await putPostFetch(
-            `https://striveschool-api.herokuapp.com/api/profile/${userId}/experiences`,
+            `https://striveschool-api.herokuapp.com/api/profile/${user._id}/experiences`,
             'POST',
             experienceData
         );
@@ -64,11 +64,11 @@ export const insertExperience = async (userId, experienceData) => {
 
 // Va utilizzato l'oggetto sopra come modello per i dati da inviare su experienceData.
 // ⚠️ !!! In questa chiamata va utilizzato solo l'ID come dato generato dal server !!! ⚠️
-export const updateExperience = async (userId, experienceData) => {
+export const updateExperience = async (user, experienceData) => {
     try {
 
 
-        let myProfile = userIDValidation(userId);
+        let myProfile = userValidation(user);
 
         itemIDValidation(
             await getExperiences(myProfile._id),
@@ -76,7 +76,7 @@ export const updateExperience = async (userId, experienceData) => {
         )
 
         return await putPostFetch(
-            `https://striveschool-api.herokuapp.com/api/profile/${userId}/experiences/${experienceData._id}`,
+            `https://striveschool-api.herokuapp.com/api/profile/${user._id}/experiences/${experienceData._id}`,
             'PUT',
             experienceData
         );
@@ -89,10 +89,10 @@ export const updateExperience = async (userId, experienceData) => {
 
 // Va utilizzato l'oggetto sopra come modello per i dati da inviare su experienceData.
 // ⚠️ !!! In questa chiamata va utilizzato solo l'ID come dato generato dal server !!! ⚠️
-export const deleteExperience = async (userId, experienceId) => {
+export const deleteExperience = async (user, experienceId) => {
     try {
 
-        let myProfile = userIDValidation(userId);
+        let myProfile = userValidation(user);
 
         itemIDValidation(
             await getExperiences(myProfile._id),
@@ -100,7 +100,7 @@ export const deleteExperience = async (userId, experienceId) => {
         );
 
         return await getDeleteFetch(
-            `https://striveschool-api.herokuapp.com/api/profile/${userId}/experiences/${experienceId}`,
+            `https://striveschool-api.herokuapp.com/api/profile/${user._id}/experiences/${experienceId}`,
             'DELETE'
         )
 

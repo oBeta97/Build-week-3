@@ -20,11 +20,11 @@ const Analisi = () => {
 
 
         {/* PRIMA COLONNA */}
-        <Col lg={1} xs={1} className="text-start fs-3">
+        <Col lg={1} xs={2} className="text-start fs-3">
           <IoPeople />
         </Col>
 
-        <Col lg={3} xs={11} className="p-0 px-1 ps-xs-2 ps-lg-0">
+        <Col lg={3} xs={10} className="p-0 px-1 ps-xs-2 ps-lg-0">
           {" "}
           <p className="fw-bold text-start lh-sm">
             3 visualizzazioni del profilo <br></br>{" "}
@@ -36,10 +36,10 @@ const Analisi = () => {
 
 
         {/* SECONDA COLONNA */}
-        <Col lg={1} xs={1} className="text-start fs-3">
+        <Col lg={1} xs={2} className="text-start fs-3">
           <VscGraph />
         </Col>
-        <Col lg={3} xs={11} className="p-0 px-1 ps-xs-2 ps-lg-0">
+        <Col lg={3} xs={10} className="p-0 px-1 ps-xs-2 ps-lg-0">
           {" "}
           <p className="fw-bold text-start lh-sm">
             {" "}
@@ -50,10 +50,10 @@ const Analisi = () => {
 
 
         {/* TERZA COLONNA */}
-        <Col lg={1} xs={1} className="text-start fs-3">
+        <Col lg={1} xs={2} className="text-start fs-3">
           <IoSearch />
         </Col>
-        <Col lg={3} xs={11} className="p-0 px-1 ps-xs-2 ps-lg-0">
+        <Col lg={3} xs={10} className="p-0 px-1 ps-xs-2 ps-lg-0">
           {" "}
           <p className="fw-bold text-start lh-sm">
             {" "}
