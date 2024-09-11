@@ -1,3 +1,4 @@
+import CreatePost from "./CreatePost";
 import MyBaseContainer from "./MyBaseContainer";
 import ThreeCol from "./ThreeCol";
 
@@ -7,7 +8,7 @@ const HomePage = () => {
         <MyBaseContainer>
             <ThreeCol 
                 left=""
-                center=""
+                center={<CreatePost />}
                 right=""
             />
         </MyBaseContainer>
