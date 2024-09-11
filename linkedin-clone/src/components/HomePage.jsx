@@ -1,6 +1,7 @@
 import MyBaseContainer from "./MyBaseContainer";
 import ThreeCol from "./ThreeCol";
 import HomePageLeftAside from "./HomePageLeftAside";
+import Posts from "./Postst";
 
 
 const HomePage = () => {
@@ -8,7 +9,7 @@ const HomePage = () => {
         <MyBaseContainer>
             <ThreeCol 
                 left={<HomePageLeftAside /> }
-                center=""
+                center={<Posts />}
                 right=""
             />
         </MyBaseContainer>
