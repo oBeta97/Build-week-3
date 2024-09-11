@@ -61,7 +61,7 @@ const MeCard = ({ lite = false }) => {
                         </Spinner>
                     ) : (
                         <>
-                            <LandscapeImg />
+                            <LandscapeImg lite={lite} />
                             <Row className="my-3 justify-content-between">
                                 <Col xs={6} className="position-relative">
                                     <img
