@@ -6,6 +6,7 @@ import MyFooter from "./components/MyFooter";
 import { MyNavbar } from "./components/MyNavbar";
 import ProfilePage from "./components/ProfilPage";
 import MyBaseContainer from "./components/MyBaseContainer";
+import HomePage from "./components/HomePage";
 
 function App() {
   return (
@@ -19,6 +20,7 @@ function App() {
 
         <main style={{ backgroundColor: "#F4F2EE" }}>
           <Routes>
+            <Route path="/" element={<HomePage />} />
             <Route path="/profile/:profileId" element={<ProfilePage />} />
           </Routes>
         </main>

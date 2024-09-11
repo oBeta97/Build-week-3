@@ -5,7 +5,7 @@ const ThreeCol = (props) => {
     return (
 
         <Row>
-            <Col sm={0} md={3} lg={3} className="d-flex align-items-center">
+            <Col sm={12} md={3} lg={3} className="d-flex align-items-center">
                 {props.left}
             </Col>
             <Col xs={12} md={6} className="d-flex flex-column gap-2">
