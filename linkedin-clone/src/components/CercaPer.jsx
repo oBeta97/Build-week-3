@@ -2,20 +2,20 @@ import { Container, Row, Col } from "react-bootstrap";
 
 const CercaPer = () => {
   return (
-    <Container className="bg-white border rounded ">
+    <Container className="bg-white border rounded  d-flex  flex-column p-3 gap-2">
       <Row>
         <Col xs={12}>
-          <h4 className="text-start"> Cerca Per:</h4>
+          <h5 className="text-start m-0 p-0"> Cerca Per:</h5>
         </Col>
       </Row>
       <Row>
         <Col xs={12}>
-          <p className="text-start ">Aziendea</p>
+          <p className="text-start m-0 p-0 ">Azienda</p>
         </Col>
       </Row>
       <Row>
         <Col xs={12}>
-          <p className="text-start ">categoria</p>
+          <p className="text-start m-0 p-0 ">categoria</p>
         </Col>
       </Row>
     </Container>
