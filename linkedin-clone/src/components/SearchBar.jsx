@@ -15,8 +15,8 @@ const SearchBar = () => {
 
     const handleSubmit = (event) => {
         event.preventDefault();
-        dispatch(searchFetch(searchString)) 
-        navigator('/search')
+        dispatch(searchFetch(searchString));
+        navigator('/search');
     }
 
     return (

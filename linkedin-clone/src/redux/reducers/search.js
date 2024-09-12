@@ -1,7 +1,8 @@
-import { ADD_SEARCH } from "../action";
+import { ADD_SEARCH, ADD_SEARCH_STRING } from "../action";
 
 
 const initialState = {
+    searchString:'',
     content:[],
 }
 
@@ -14,6 +15,12 @@ const searchReducer = (state = initialState, action) => {
                 ...state,
                 content: action.payload,
             };
+
+            case ADD_SEARCH_STRING:
+                return {
+                    ...state,
+                    searchString: action.payload
+                };
 
             default:
                 return state;
