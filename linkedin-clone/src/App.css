@@ -44,7 +44,9 @@ small,
   color: #8a8a8a !important;
 }
 
-
+.cursor-pointer {
+  cursor: pointer;
+}
 
 .button-list { 
   display: flex;

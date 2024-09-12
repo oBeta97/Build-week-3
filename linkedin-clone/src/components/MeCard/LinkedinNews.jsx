@@ -25,7 +25,7 @@ export const LinkedinNews = () => {
       </Row>
       <Row className="d-flex flex-column ">
         <Col className="d-flex justify-content-start m-0 p-0 fw-semibold">
-          <p className="p-0 m-0 overflow-auto small ">
+          <p className="p-0 m-0 small text-start ">
             Alla fine ring of power non è male
           </p>
         </Col>
@@ -37,7 +37,7 @@ export const LinkedinNews = () => {
       </Row>{" "}
       <Row className="d-flex flex-column py-2">
         <Col className="d-flex justify-content-start m-0 p-0 fw-semibold">
-          <p className="p-0 m-0 small"> topo giggio è con noi</p>
+          <p className="p-0 m-0 small text-start"> topo giggio è con noi</p>
         </Col>
         <Col className="d-flex justify-content-start  m-0 p-0">
           <small className=" text-secondary lh-sm">
@@ -47,7 +47,7 @@ export const LinkedinNews = () => {
       </Row>
       <Row className="d-flex flex-column py-2">
         <Col className="d-flex justify-content-start m-0 p-0 fw-semibold">
-          <p className="p-0 m-0 small">Viva i Kakapo </p>
+          <p className="p-0 m-0 small text-start">Viva i Kakapo </p>
         </Col>
         <Col className="d-flex justify-content-start  m-0 p-0">
           <small className=" text-secondary lh-sm">1 ore fa • 1 lettore</small>
@@ -55,7 +55,7 @@ export const LinkedinNews = () => {
       </Row>
       <Row className="d-flex flex-column py-2">
         <Col className="d-flex justify-content-start m-0 p-0 fw-semibold">
-          <p className="p-0 m-0 small">Era meglio quando si stava peggio </p>
+          <p className="p-0 m-0 small text-start">Era meglio quando si stava peggio </p>
         </Col>
         <Col className="d-flex justify-content-start  m-0 p-0">
           <small className=" text-secondary lh-sm">
