@@ -11,10 +11,10 @@ export const addSearch = (searchRes) => {
     }
 }
 
-export const searchFetch = (queryWord) => {
+export const searchFetch = (queryWord, searchType = 'query') => {
     return (dispatch) => {
 
-        getJobs({ query: queryWord }).
+        getJobs({ [searchType]: queryWord }).
             then(steve =>
                 dispatch(
                     addSearch(steve)
