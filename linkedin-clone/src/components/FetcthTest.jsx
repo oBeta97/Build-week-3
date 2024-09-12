@@ -1,4 +1,5 @@
 import { deleteExperience, getExperiences, insertExperience, updateExperience } from "../modules/experiencesFetches";
+import { getJobs } from "../modules/jobsFetches";
 import { deletePost, getPosts, insertPost } from "../modules/postFetches";
 
 const FetchTest = () => {
@@ -19,13 +20,23 @@ const FetchTest = () => {
     }
 
 
+
+    getJobs({
+        query:'developer'
+        // company: 'Olla'
+        // category: 'writing'
+    }).then((res) =>
+        console.log('FETCH RESULT', res)
+    )
+
+
     // getPosts('me').then((res) =>
     //     console.log('FETCH RESULT', res)
     // )
 
     // insertPost(meID,obj).then(res => console.log('insertPost:', res))
 
-    deletePost(meID, '66df0b34af434b00159d8312').then(res => console.log('del res', res))
+    // deletePost(meID, '66e2c115543a4c0015901e1e').then(res => console.log('del res', res))
 
     // insertExperience(meID, obj).then(res => 
     //     
