@@ -7,6 +7,7 @@ import OpenToCard from "./MeCard/OpenToCard";
 import { useEffect, useState } from "react";
 import { getProfile, updateProfile } from "../modules/profileFetches";
 import { useParams } from "react-router-dom";
+import ProfileImg from "./ProfileImg";
 
 
 const MeCard = ({ lite = false }) => {
@@ -63,21 +64,7 @@ const MeCard = ({ lite = false }) => {
                         <>
                             <LandscapeImg lite={lite} myProfile={URLParams.profileId === 'me'} />
                             <Row className="my-3 justify-content-between">
-                                <Col xs={6} className="position-relative">
-                                    <img
-                                        src={profileData.image}
-                                        className="
-                                            rounded-circle border border-5 border-light
-                                            position-absolute bottom-0 start-0
-                                            ms-5
-                                        "
-                                        alt="immagine profilo"
-                                        style={{
-                                            width: lite ? '5em' : '10em',
-                                            height: lite ? '5em' : '10em',
-                                        }}
-                                    />
-                                </Col>
+                                <ProfileImg profileData={profileData} lite={lite} />
                                 {
                                     !lite ? (
                                         <Col xs={6} className="d-flex justify-content-end">

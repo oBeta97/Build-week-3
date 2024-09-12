@@ -64,7 +64,7 @@ export const CardCentraleHome = ({ post, isMyPost, profileData }) => {
             </Row>
             <Row>
               <Col xs="12" className=" d-flex justify-content-start text-muted">
-                <p> {post.text} </p>
+                <p className="text-start"> {post.text} </p>
               </Col>
             </Row>
             <Row>

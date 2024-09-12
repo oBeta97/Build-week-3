@@ -1,5 +1,6 @@
 import { Col, Row } from "react-bootstrap";
 import { FaUserCheck } from "react-icons/fa";
+import { Link } from "react-router-dom";
 
 // Da aggiungere le props con i dati che arrivano dalle API
 const ProfileInfo = (props) => {
@@ -7,7 +8,9 @@ const ProfileInfo = (props) => {
         <Row>
             <Col xs={12} lg={props.lite ? 12 : 8}>
                 <div className="d-flex flex-column flex-md-row align-items-start gap-2">
-                    <h3 className="p-0 m-0">{`${props.profileData.name} ${props.profileData.surname}`}</h3>
+                    <Link to={`/profile/${props.lite ? 'me' : props.profileData._id}`} className="text-decoration-none text-dark">
+                        <h3 className="p-0 m-0">{`${props.profileData.name} ${props.profileData.surname}`}</h3>
+                    </Link>
                     {
                         !props.lite && props.myProfile ? (
                             <div
