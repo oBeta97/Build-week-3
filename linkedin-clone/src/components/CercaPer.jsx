@@ -10,7 +10,7 @@ const CercaPer = () => {
       </Row>
       <Row>
         <Col xs={12}>
-          <p className="text-start ">Azienda</p>
+          <p className="text-start ">Aziendea</p>
         </Col>
       </Row>
       <Row>
