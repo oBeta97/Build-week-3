@@ -15,7 +15,7 @@ const Posts = () => {
     const getAllposts = async () => {
         const posts = await getPosts();
 
-        console.log(posts);
+        console.log('getAllposts',posts);
         setIsLoading(false);
         setPostList(posts);
     }
@@ -37,9 +37,15 @@ const Posts = () => {
         getMyPosts();
         getAllProfile();
 
-        setInterval(async () => {
+        const getPoststEvery60sec = setInterval(async () => {
             await getAllposts()
         }, 60000) // ogni minuto viene rifatto il getPosts
+
+
+        return () => {
+            clearInterval(getPoststEvery60sec);
+            console.log('setInterval rimosso');
+        }
 
     }, [])
 
@@ -65,7 +71,7 @@ const Posts = () => {
                     </Spinner>
                 ) : (
                     <>
-                        <CreatePost />
+                        <CreatePost afterPostCreation={getAllposts} />
                         {
                             postList
                                 .sort(sortPost)

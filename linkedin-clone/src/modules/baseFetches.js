@@ -3,14 +3,18 @@ import API_KEY from "./apiKey";
 // Le fetch che dobbiamo fare sono riducibili a queste funzioni di base
 export const putPostFetch = async (URL, method, obj) => {
     try {
+
+        const myHeaders = obj instanceof FormData ? {Authorization: API_KEY,} : 
+        {
+            'Content-Type': 'application/json',
+            Authorization: API_KEY,
+        }
+
         let response = await fetch(URL,
             {
                 method: method,
-                body: JSON.stringify(obj),
-                headers: {
-                    'Content-Type': 'application/json',
-                    Authorization: API_KEY,
-                }
+                body: obj instanceof FormData ? obj : JSON.stringify(obj),
+                headers: myHeaders
             }
         )
 

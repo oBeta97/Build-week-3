@@ -18,7 +18,7 @@ import { MdWorkspacePremium } from "react-icons/md";
 import { FaPlus } from "react-icons/fa6";
 import { insertPost } from "../modules/postFetches";
 
-const CreatePost = () => {
+const CreatePost = ({ afterPostCreation }) => {
   const [user, setUser] = useState(null);
   const [isLoading, setIsLoading] = useState(false);
   const [show, setShow] = useState(false);
@@ -31,7 +31,9 @@ const CreatePost = () => {
   const handlePost = () => {
     insertPost(user, {
       text: postContent,
-    }).then((res) => alert("post inserito, ricarica la pagina"));
+    }).then((res) => alert("post inserito!"));
+
+    afterPostCreation();
 
     setShow(false);
   };

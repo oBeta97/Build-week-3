@@ -36,14 +36,13 @@ export const MyNavbar = () => {
         <Navbar.Collapse id="basic-navbar-nav ">
           <Nav className="ml-auto d-flex align-items-center">
             <Link to={"/"} className="text-dark text-decoration-none">
-              <Nav.Link
-                href="#home"
+              <Nav.Item
                 className=" d-flex flex-column align-items-center "
               >
                 <FaHome style={{ fontSize: "1.6rem" }} />
 
                 <small>Home</small>
-              </Nav.Link>
+              </Nav.Item>
             </Link>
             <Nav.Link
               href="#network"
