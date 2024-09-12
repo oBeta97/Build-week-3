@@ -1,28 +1,14 @@
-import { Col, Container, Row } from "react-bootstrap";
-import SearchCard from "./SearchCard";
+import ThreeCol from "./ThreeCol";
+import MyBaseContainer from "./MyBaseContainer";
+import CercaPer from "./CercaPer";
+
+import HomePageRightAside from "./HomePageRightAside";
 
 const SearchPage = () => {
   return (
-    <Container>
-      <Row>
-
-        {/* PRIMA COLONNA */}
-        <Col xs={3}>
-        </Col>
-
-
-        <Col xs={6}>
-          <SearchCard />
-          {/* POSTO RISERVATO AL COMPONENTE DI LUCA */}
-        </Col>
-
-
-        {/* TERZA COLONNA */}
-        <Col xs={3}>
-        </Col>
-
-      </Row>
-    </Container>
+    <MyBaseContainer>
+      <ThreeCol left={<CercaPer />} center="" right={<HomePageRightAside />} />
+    </MyBaseContainer>
   );
 };
 
