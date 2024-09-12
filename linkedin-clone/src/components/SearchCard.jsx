@@ -2,7 +2,7 @@ import { Button, Col, Container, Modal, Row } from "react-bootstrap";
 import { FaInfoCircle } from "react-icons/fa";
 import { useState } from "react";
 
-const SearchCard = () => {
+const SearchCard = ({ data }) => {
   const [follow, setFollow] = useState(false); // per cambiare il follow del button
   const [show, setShow] = useState(false); // per mostrare il modale
 
@@ -19,16 +19,19 @@ const SearchCard = () => {
   };
 
   // ------------------ funzione per ritornare il giorno esatto  ------------------
-  const dateString = "2021-09-10T06:00:52.000Z";
+  const toLocalString = (dateString) => {
+    const date = new Date(dateString);
 
-  const date = new Date(dateString);
+    // estrarre le info utili
+    const day = date.getUTCDate(); // giorno
+    const month = date.getUTCMonth() + 1; // mese (i mesi partono da 0, quindi aggiungi 1)
+    const year = date.getUTCFullYear(); // anno
 
-  // estrarre le info utili
-  const day = date.getUTCDate(); // giorno
-  const month = date.getUTCMonth() + 1; // mese (i mesi partono da 0, quindi aggiungi 1)
-  const year = date.getUTCFullYear(); // anno
+    console.log(`Giorno: ${day}, Mese: ${month}, Anno: ${year}`);
+    console.log(data);
 
-  console.log(`Giorno: ${day}, Mese: ${month}, Anno: ${year}`);
+    return `${day}/${month}/${year}`;
+  }
   // ------------------ funzione per ritornare il giorno esatto  ------------------
 
 
@@ -38,17 +41,16 @@ const SearchCard = () => {
         <Col xs={2}>
           {/* url */}
           <img
-            src="https://www.shutterstock.com/image-photo/yellow-crested-cockatoo-cacatua-sulphurea-260nw-2226573105.jpg"
+            src={data.company_logo_url ? data.company_logo_url : 'https://media.istockphoto.com/id/1147544807/vector/thumbnail-image-vector-graphic.jpg?s=612x612&w=0&k=20&c=rnCKVbdxqkjlcs3xH87-9gocETqpspHFXu5dIGB4wuM='}
             alt="profilo azienda"
-            className="w-100 rounded-5"
+            className="img-fluid rounded-circle"
           ></img>
         </Col>
-
-        <Col xs={10} className="d-flex flex-column align-items-start">
+        <Col xs={10} className="d-flex flex-column align-items-start text-start">
           {/* company_name */}
-          <h4>Opus One Solutions</h4>
+          <h4 className="text-wrap">{data.title}</h4>
           {/* candidate_required_location */}
-          <p>Anywhere</p>
+          <p>{data.candidate_required_location}</p>
 
           <div className="d-flex">
             <Button
@@ -77,42 +79,55 @@ const SearchCard = () => {
         </Modal.Header>
         <Modal.Body>
           <Container>
-            <Row>
+            {<Row>
               <Col xs={6}>
                 {/* company_name  +  url */}
                 <h4>1. Nome Azienda</h4>
-                <p>Opus One Solution</p>
+                <p>{data.company_name}</p>
               </Col>
               <Col xs={6} className="text-end">
                 <img
-                  src="https://cdn.vectorstock.com/i/500p/53/42/user-member-avatar-face-profile-icon-vector-22965342.jpg"
+                  src={data.company_logo_url ? data.company_logo_url : 'https://media.istockphoto.com/id/1147544807/vector/thumbnail-image-vector-graphic.jpg?s=612x612&w=0&k=20&c=rnCKVbdxqkjlcs3xH87-9gocETqpspHFXu5dIGB4wuM='}
                   alt="profilo azienda"
-                  className="w-25 rounded-5"
-                ></img>
+                  className="w-25 rounded-circle"
+                />
               </Col>
 
               {/* job_type   +  title */}
               <h4>2. Tipo di contratto</h4>
-              <p>Freelance Content Writer</p>
-              <p>Assunto tramite : contract</p>
+              <p>{data.title}</p>
+              <p>Assunto tramite: {data.job_type}</p>
 
               {/* description */}
               <h4>3. Descrizione</h4>
               <p>
-                Dettagli sull indirizzo di residenza e indirizzo di
-                spedizione...
+                Titolo lavoro: {data.title}
+              </p>
+              <p>
+                il candidato deve vivere in: {data.candidate_required_location}
+              </p>
+              <p>
+                Categoria lavoro: {data.category}
+              </p>
+              <p>
+                Link richiesta di lavoro: {data.url}
               </p>
 
               {/* salary */}
-              <h4>4. Stipendio</h4>
-              <p>1.800 €</p>
+              {
+                data.salary &&
+                <>
+                  <h4>4. Stipendio</h4>
+                  <p>1.800 €</p>
+                </>
+              }
 
               {/* publication_date */}
-              <h4>6. Data pubblicazione</h4>
+              <h4>4. Data pubblicazione</h4>
               <p>
-                {day} - {month} - {year}
+                {toLocalString(data.publication_date)}
               </p>
-            </Row>
+            </Row>}
           </Container>
         </Modal.Body>
         <Modal.Footer>
