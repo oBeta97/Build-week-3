@@ -29,11 +29,9 @@ const CreatePost = () => {
   };
 
   const handlePost = () => {
-    insertPost( user,
-      {
-        text: postContent
-      }
-    ).then(res => alert('post inserito, ricarica la pagina'))
+    insertPost(user, {
+      text: postContent,
+    }).then((res) => alert("post inserito, ricarica la pagina"));
 
     setShow(false);
   };
@@ -49,7 +47,7 @@ const CreatePost = () => {
   }, []);
 
   return (
-    <Container className="bg-white border rounded mt-2">
+    <Container className="bg-white border rounded ">
       {/* prima riga, profilo e button "crea" */}
       <Row>
         {isLoading ? (
@@ -123,7 +121,7 @@ const CreatePost = () => {
                   </Col>
 
                   <Col xs={10} className="mt-2">
-                {user.name} {user.surname}
+                    {user.name} {user.surname}
                     <p className="extra-small">Pubblica: Chi te se incula</p>
                   </Col>
                 </Row>
@@ -148,14 +146,20 @@ const CreatePost = () => {
               <CiFaceSmile />
               <br></br>
 
-              <span className="pe-4"><RiGalleryLine /></span>
+              <span className="pe-4">
+                <RiGalleryLine />
+              </span>
 
-              <span className="pe-4"><FaRegCalendarAlt /></span>
-              <span className="pe-4"><MdWorkspacePremium /></span>
-              <span className="pe-4"><FaPlus /></span>
-
+              <span className="pe-4">
+                <FaRegCalendarAlt />
+              </span>
+              <span className="pe-4">
+                <MdWorkspacePremium />
+              </span>
+              <span className="pe-4">
+                <FaPlus />
+              </span>
             </p>
-
           </Modal.Body>
           <Modal.Footer>
             <Button

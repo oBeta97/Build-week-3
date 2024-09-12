@@ -17,14 +17,14 @@ function App() {
           </MyBaseContainer>
         </header>
 
-        <main style={{ backgroundColor: "#F4F2EE" }}>
+        <main className="pt-3" style={{ backgroundColor: "#F4F2EE" }}>
           <Routes>
             <Route path="/" element={<HomePage />} />
             <Route path="/profile/:profileId" element={<ProfilePage />} />
           </Routes>
         </main>
       </div>
-    </BrowserRouter >
+    </BrowserRouter>
   );
 }
 

@@ -24,7 +24,7 @@ export const MyNavbar = () => {
     <Navbar bg="light" expand="lg" className="sticky-top">
       <Container>
         <Navbar.Brand>
-          <Link to={'/'}>
+          <Link to={"/"}>
             <FaLinkedin color="#0077b5" size="2.5rem" />
           </Link>
         </Navbar.Brand>
@@ -34,14 +34,14 @@ export const MyNavbar = () => {
             className="d-flex align-items-center ps-3 rounded-start-2"
             style={{
               backgroundColor: "#E6F3F8",
-              height: "2.2rem"
+              height: "2.2rem",
             }}
           >
             <FaSearch className="" />
           </div>
           <FormControl
             type="text"
-            placeholder="Search"
+            placeholder="Cerca"
             className="w-75 rounded-start-0 border-0"
             style={{ backgroundColor: "#E6F3F8" }}
           />
@@ -50,50 +50,43 @@ export const MyNavbar = () => {
         <Navbar.Toggle aria-controls="basic-navbar-nav " />
         <Navbar.Collapse id="basic-navbar-nav ">
           <Nav className="ml-auto d-flex align-items-center">
-            <Nav.Link
-              href="#home"
-              className=" d-flex flex-column align-items-center "
-            >
-              <FaHome style={{ fontSize: "1.6rem" }} />
-              <small>
-                Home
-              </small>
-            </Nav.Link>
+            <Link to={"/"} className="text-dark text-decoration-none">
+              <Nav.Link
+                href="#home"
+                className=" d-flex flex-column align-items-center "
+              >
+                <FaHome style={{ fontSize: "1.6rem" }} />
+
+                <small>Home</small>
+              </Nav.Link>
+            </Link>
             <Nav.Link
               href="#network"
               className=" d-flex flex-column align-items-center "
             >
               <FaUserFriends style={{ fontSize: "1.6rem" }} />
-              <small>
-                Network
-              </small>
+              <small>Rete</small>
             </Nav.Link>
             <Nav.Link
               href="#jobs"
               className=" d-flex flex-column align-items-center "
             >
               <FaBriefcase style={{ fontSize: "1.6rem" }} />
-              <small>
-                Jobs
-              </small>
+              <small>Lavoro</small>
             </Nav.Link>
             <Nav.Link
               href="#messaging"
               className=" d-flex flex-column align-items-center "
             >
               <FaEnvelope style={{ fontSize: "1.6rem" }} />
-              <small>
-                Messaging
-              </small>
+              <small>Messaggistica</small>
             </Nav.Link>
             <Nav.Link
               href="#notifications"
               className=" d-flex flex-column align-items-center "
             >
               <FaBell style={{ fontSize: "1.6rem" }} />
-              <small>
-                Notifications
-              </small>
+              <small>Notifiche</small>
             </Nav.Link>
             <Nav
               href="#profile"
@@ -103,7 +96,10 @@ export const MyNavbar = () => {
               <FaUserCircle style={{ fontSize: "1.6rem" }} />
               <NavDropdown title="Me" id="basic-nav-dropdown" className="p-0">
                 <NavDropdown.Item>
-                  <Link to={'/profile/me'} className="text-decoration-none text-dark">
+                  <Link
+                    to={"/profile/me"}
+                    className="text-decoration-none text-dark"
+                  >
                     Profile
                   </Link>
                 </NavDropdown.Item>
@@ -119,9 +115,7 @@ export const MyNavbar = () => {
                 align-items-center"
             >
               <CgMenuGridO style={{ fontSize: "1.6rem" }} />
-              <small>
-                Per le aziende
-              </small>
+              <small>Per le aziende</small>
             </Nav.Link>
             <Nav.Link
               className="d-none d-xl-flex align-items-center"
