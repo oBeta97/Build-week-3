@@ -18,6 +18,7 @@ import {
 } from "react-icons/fa";
 import { CgMenuGridO } from "react-icons/cg";
 import { Link } from "react-router-dom";
+import SearchBar from "./SearchBar";
 
 export const MyNavbar = () => {
   return (
@@ -29,23 +30,7 @@ export const MyNavbar = () => {
           </Link>
         </Navbar.Brand>
 
-        <Form className="d-flex d-none d-md-flex align-items-center">
-          <div
-            className="d-flex align-items-center ps-3 rounded-start-2"
-            style={{
-              backgroundColor: "#E6F3F8",
-              height: "2.2rem",
-            }}
-          >
-            <FaSearch className="" />
-          </div>
-          <FormControl
-            type="text"
-            placeholder="Cerca"
-            className="w-75 rounded-start-0 border-0"
-            style={{ backgroundColor: "#E6F3F8" }}
-          />
-        </Form>
+        <SearchBar />
 
         <Navbar.Toggle aria-controls="basic-navbar-nav " />
         <Navbar.Collapse id="basic-navbar-nav ">
