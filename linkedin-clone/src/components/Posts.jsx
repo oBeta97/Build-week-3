@@ -17,7 +17,7 @@ const Posts = () => {
 
         console.log('getAllposts',posts);
         setIsLoading(false);
-        setPostList(posts);
+        setPostList(posts.sort(sortPost).slice(0, 25));
     }
 
     const getMyPosts = async () => {
@@ -74,13 +74,13 @@ const Posts = () => {
                         <CreatePost afterPostCreation={getAllposts} />
                         {
                             postList
-                                .sort(sortPost)
                                 .map((post) =>
                                     <CardCentraleHome
                                         key={post._id}
                                         post={post}
                                         isMyPost={myPostList.filter(mypost => mypost._id === post._id).length === 1}
                                         profileData={profileList.filter(profile => profile._id === post.user._id)[0]}
+                                        afterPostCreation={getAllposts}
                                     />
                                 )
                         }
