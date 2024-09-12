@@ -49,7 +49,7 @@ const CreatePost = ({ afterPostCreation }) => {
   }, []);
 
   return (
-    <Container className="bg-white border rounded ">
+    <Container className="bg-white border rounded">
       {/* prima riga, profilo e button "crea" */}
       <Row>
         {isLoading ? (
