@@ -17,6 +17,7 @@ import { RiGalleryLine } from "react-icons/ri";
 import { MdWorkspacePremium } from "react-icons/md";
 import { FaPlus } from "react-icons/fa6";
 import { insertPost } from "../modules/postFetches";
+import { addPostImage } from "../modules/imageFetches";
 
 const CreatePost = ({ afterPostCreation }) => {
   const [user, setUser] = useState(null);
@@ -31,10 +32,13 @@ const CreatePost = ({ afterPostCreation }) => {
   const handlePost = () => {
     insertPost(user, {
       text: postContent,
-    }).then((res) => alert("post inserito!"));
+    }).
+      then((res) => {
+        if (fileToUpload)
+          return uploadImage(res)
+      });
 
     afterPostCreation();
-
     setShow(false);
   };
 
@@ -47,6 +51,30 @@ const CreatePost = ({ afterPostCreation }) => {
       })
       .catch((error) => console.error("Error fetching profile:", error));
   }, []);
+
+
+  const [fileToUpload, setFileToUpload] = useState(null);
+
+
+  const onFileChange = (event) => {
+    setFileToUpload(event.target.files[0])
+  }
+
+
+  const uploadImage = (post) => {
+    // if (!fileToUpload) {
+    //   setUploadError(true)
+    //   return;
+    // }
+    const formDataImg = new FormData();
+    formDataImg.append("post", fileToUpload);
+
+
+    addPostImage(post.user, formDataImg, post._id).then(() => {
+      afterPostCreation();
+      setShow(false);
+    })
+  }
 
   return (
     <Container className="bg-white border rounded">
@@ -148,9 +176,10 @@ const CreatePost = ({ afterPostCreation }) => {
               <CiFaceSmile />
               <br></br>
 
-              <span className="pe-4">
+              <label for='imgUpload' className="pe-4 cursor-pointer">
                 <RiGalleryLine />
-              </span>
+              </label>
+              <input type="file" id="imgUpload" className="d-none" onChange={onFileChange} />
 
               <span className="pe-4">
                 <FaRegCalendarAlt />
@@ -162,6 +191,23 @@ const CreatePost = ({ afterPostCreation }) => {
                 <FaPlus />
               </span>
             </p>
+            {
+              fileToUpload ? (
+                <>
+                  <h5>Immagine che verrà caricata:</h5>
+                  <img
+                    src={URL.createObjectURL(fileToUpload)}
+                    alt="Immagine da caricare"
+                    style={{
+                      maxHeight: '20em',
+                      maxWidth: '20em',
+                      display: 'block',
+                      width: 'auto'
+                    }}
+                  />
+                </>
+              ) : ""
+            }
           </Modal.Body>
           <Modal.Footer>
             <Button
