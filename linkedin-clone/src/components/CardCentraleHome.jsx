@@ -11,7 +11,7 @@ import { useState } from "react";
 import { deletePost, updatePost } from "../modules/postFetches";
 import { addPostImage } from "../modules/imageFetches";
 
-export const CardCentraleHome = ({ post, isMyPost, profileData, afterPostCreation }) => {
+export const CardCentraleHome = ({ post, isMyPost, profileData, afterPostCreation, lite = false }) => {
 
   const [showModal, setShowModal] = useState(false);
   const [showImagePostModal, setShowImagePostModal] = useState(false);
@@ -93,44 +93,59 @@ export const CardCentraleHome = ({ post, isMyPost, profileData, afterPostCreatio
             >
               {/* prima row */}
               <Row className="text-start mb-3">
-                <Col xs={2}>
+                <Col xs={lite ? 'auto' : 2}>
                   <img
                     src={profileData.image}
                     alt="img"
                     className="img-fluid img-fit rounded-circle"
                     style={{ width: '4em', height: '3.2em' }}
                   />
-                </Col>
-                <Col xs={7} className="d-flex flex-column">
-                  <Link
-                    to={'/profile/' + profileData._id}
-                    className="text-start text-decoration-none text-black fw-bold lh-sm m-0 p-0"
-                  >
-                    {post.username}
-                  </Link>
-                  <span className="text-muted">867 follower</span>
-                  <span className="text-muted ">
-                    {minutesAgo(post.createdAt)} minuti • <BiWorld />
-                  </span>
-                </Col>
-                <Col xs={3} className="text-primary d-lg-flex justify-content-end p-0">
                   {
-                    !isMyPost ? (
-                      <p className="small">
-                        +<span className="d-none d-lg-inline m-0 p-0 g-0"> Segui </span>
-                      </p>
-                    ) : (
-                      <div className="d-flex gap-2">
-                        <Button variant="white" className="p-0 m-0" onClick={viewPostImageModal}>
-                          <FaImage />
-                        </Button>
-                        <Button variant="white" className="p-0 m-0" onClick={viewModal}>
-                          <FaPencil />
-                        </Button>
-                      </div>
-                    )
+                    lite &&
+                    <Link
+                      to={'/profile/' + profileData._id}
+                      className="text-start text-decoration-none text-black fw-bold lh-sm m-0 p-0 ms-3"
+                    >
+                      {post.username}
+                    </Link>
                   }
                 </Col>
+                {
+                  !lite ? (
+                    <>
+                      <Col xs={7} className="d-flex flex-column">
+                        <Link
+                          to={'/profile/' + profileData._id}
+                          className="text-start text-decoration-none text-black fw-bold lh-sm m-0 p-0"
+                        >
+                          {post.username}
+                        </Link>
+                        <span className="text-muted">867 follower</span>
+                        <span className="text-muted ">
+                          {minutesAgo(post.createdAt)} minuti • <BiWorld />
+                        </span>
+                      </Col>
+                      <Col xs={3} className="text-primary d-lg-flex justify-content-end p-0">
+                        {
+                          !isMyPost ? (
+                            <p className="small">
+                              +<span className="d-none d-lg-inline m-0 p-0 g-0"> Segui </span>
+                            </p>
+                          ) : (
+                            <div className="d-flex gap-2">
+                              <Button variant="white" className="p-0 m-0" onClick={viewPostImageModal}>
+                                <FaImage />
+                              </Button>
+                              <Button variant="white" className="p-0 m-0" onClick={viewModal}>
+                                <FaPencil />
+                              </Button>
+                            </div>
+                          )
+                        }
+                      </Col>
+                    </>
+                  ) : ""
+                }
               </Row>
               <Row>
                 <Col xs="12" className=" d-flex justify-content-start text-muted">
@@ -139,7 +154,7 @@ export const CardCentraleHome = ({ post, isMyPost, profileData, afterPostCreatio
               </Row>
               <Row>
                 {
-                  post.image ? (
+                  post.image && !lite ? (
                     <Col xs="12">
                       <img
                         src={post.image}
@@ -158,29 +173,34 @@ export const CardCentraleHome = ({ post, isMyPost, profileData, afterPostCreatio
                   </small>
                 </Col>
               </Row>
-              <Row>
-                <Col
-                  xs="12 "
-                  className=" d-flex justify-content-between align-items-center border-top  "
-                >
-                  <Button className="d-flex align-items-center bg-white border-0 text-dark ">
-                    <BsHandThumbsUp className="me-2" />
-                    <p className="d-none d-lg-block p-0 m-0 small"> Consiglia</p>
-                  </Button>
-                  <Button className="d-flex align-items-center bg-white border-0 text-dark ">
-                    <MdOutlineInsertComment className="me-2" />
-                    <p className="d-none d-lg-block p-0 m-0 small">Commenta</p>
-                  </Button>
-                  <Button className="d-flex align-items-center bg-white border-0 text-dark p-0">
-                    <GoArrowSwitch className="me-2" />
-                    <p className="d-none d-lg-block p-0 m-0 small">Diffondi il post</p>
-                  </Button>
-                  <Button className="d-flex align-items-center bg-white border-0 text-dark ">
-                    <IoIosSend className="me-2" />
-                    <p className="d-none d-lg-block p-0 m-0 small">Invia</p>
-                  </Button>
-                </Col>
-              </Row>
+              {
+                !lite ? (
+
+                  <Row>
+                    <Col
+                      xs="12 "
+                      className=" d-flex justify-content-between align-items-center border-top  "
+                    >
+                      <Button className="d-flex align-items-center bg-white border-0 text-dark ">
+                        <BsHandThumbsUp className="me-2" />
+                        <p className="d-none d-lg-block p-0 m-0 small"> Consiglia</p>
+                      </Button>
+                      <Button className="d-flex align-items-center bg-white border-0 text-dark ">
+                        <MdOutlineInsertComment className="me-2" />
+                        <p className="d-none d-lg-block p-0 m-0 small">Commenta</p>
+                      </Button>
+                      <Button className="d-flex align-items-center bg-white border-0 text-dark p-0">
+                        <GoArrowSwitch className="me-2" />
+                        <p className="d-none d-lg-block p-0 m-0 small">Diffondi il post</p>
+                      </Button>
+                      <Button className="d-flex align-items-center bg-white border-0 text-dark ">
+                        <IoIosSend className="me-2" />
+                        <p className="d-none d-lg-block p-0 m-0 small">Invia</p>
+                      </Button>
+                    </Col>
+                  </Row>
+                ) : ""
+              }
             </Container>
 
 
