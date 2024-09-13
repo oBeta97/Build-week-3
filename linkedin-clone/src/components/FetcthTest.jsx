@@ -1,3 +1,4 @@
+import { deleteComments, getComments, insertComment, updateComments } from "../modules/commentFetches";
 import { deleteExperience, getExperiences, insertExperience, updateExperience } from "../modules/experiencesFetches";
 import { getJobs } from "../modules/jobsFetches";
 import { deletePost, getPosts, insertPost } from "../modules/postFetches";
@@ -16,18 +17,49 @@ const FetchTest = () => {
 
     const obj =
     {
-        "text": "Questo è un nuovo post", // L'unica proprietà richiesta!
+        "comment": 'Perquisa da eliminare!',
+        "rate": 5,
+        "elementId": '66e3fbd880067d00151243cc',
     }
 
+    // 66e406dc80067d00151243e0
+
+    deleteComments('66e405c080067d00151243dd').then(()=>{
+
+        getComments('66e3fbd880067d00151243cc').then((res) =>
+            console.log('FETCH RESULT', res)
+        )
+    })
 
 
-    getJobs({
-        query:'developer'
-        // company: 'Olla'
-        // category: 'writing'
-    }).then((res) =>
-        console.log('FETCH RESULT', res)
-    )
+
+
+    // insertComment(obj,).then(()=>{
+
+    //     getComments('66e3fbd880067d00151243cc').then((res) =>
+    //         console.log('FETCH RESULT', res)
+    //     )
+    // })
+
+
+
+    // updateComments(obj,'66e405c080067d00151243dd').then(()=>{
+
+    //     getComments('66e3fbd880067d00151243cc').then((res) =>
+    //         console.log('FETCH RESULT', res)
+    //     )
+    // })
+
+
+
+
+    // getJobs({
+    //     query:'developer'
+    //     // company: 'Olla'
+    //     // category: 'writing'
+    // }).then((res) =>
+    //     console.log('FETCH RESULT', res)
+    // )
 
 
     // getPosts('me').then((res) =>
