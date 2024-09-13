@@ -76,7 +76,7 @@ export const CardCentraleHome = ({
         setComment('')
         fetchComment()
       }
-    );
+      );
 
   }
   // ---------------------------------------
@@ -283,7 +283,13 @@ export const CardCentraleHome = ({
               {showComment && (
 
                 commentList.map((commentino) => {
-                  return (<SingleComment key={commentino._id} commentino={commentino} />)
+                  return (
+                    <SingleComment
+                      key={commentino._id}
+                      commentino={commentino}
+                      onCommentChange={fetchComment}
+                      post={post}
+                    />)
                 })
               )}
             </Row>
