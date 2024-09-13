@@ -6,7 +6,6 @@ import {
   Modal,
   Form,
   Alert,
-  InputGroup,
 } from "react-bootstrap";
 import { BsHandThumbsUp } from "react-icons/bs";
 import { MdOutlineInsertComment } from "react-icons/md";
@@ -42,10 +41,10 @@ export const CardCentraleHome = ({
   // const [curComment, setCurComment] = useState([])
   const [comment, setComment] = useState('');
   const [savedComment, setSavedComment] = useState('');
-  
+
   useEffect(() => {
     fetchComment()
-  // eslint-disable-next-line react-hooks/exhaustive-deps
+    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [])
 
   const handleComment = () => {
@@ -55,7 +54,7 @@ export const CardCentraleHome = ({
   const fetchComment = () => {
     getComments(post._id).then((res) =>
       setCommentList(res)
-  )
+    )
   }
 
   const handleCommentChange = (e) => {
@@ -63,9 +62,22 @@ export const CardCentraleHome = ({
   };
 
 
-  const postComment = () => {
-    setSavedComment(comment);
-    setComment('');
+  const postComment = (e) => {
+    e.preventDefault();
+
+    const commentObject = {
+      "comment": comment,
+      "rate": 5,
+      "elementId": post._id,
+    }
+
+    insertComment(commentObject).
+      then(() => {
+        setComment('')
+        fetchComment()
+      }
+    );
+
   }
   // ---------------------------------------
 
@@ -249,30 +261,29 @@ export const CardCentraleHome = ({
             {/* MAP QUI, AD OGNI COSO DA UN COSO */}
 
             <Row
-              className={`border-top comment-row ${
-                showComment ? "show" : "hide"
-              }`}
+              className={`border-top comment-row ${showComment ? "show" : "hide"
+                }`}
             >
               <Col xs={12}>
 
-              <form className="d-flex py-2 pe-2">
-      <input
-        type="text"
-        id="textInput"
-        placeholder="Scrivi qui il tuo commento..."
-        className="form-control"
-        value={comment}
-        onChange={handleCommentChange}
-      />
+                <form className="d-flex py-2 pe-2" onSubmit={postComment}>
+                  <input
+                    type="text"
+                    id="textInput"
+                    placeholder="Scrivi qui il tuo commento..."
+                    className="form-control"
+                    value={comment}
+                    onChange={handleCommentChange}
+                  />
 
-      <Button variant="outline-dark" className="fw-bold rounded" onClick={postComment}>+</Button>
+                  <Button type="submit" variant="outline-dark" className="fw-bold rounded">+</Button>
 
-    </form>
+                </form>
               </Col>
               {showComment && (
-                
+
                 commentList.map((commentino) => {
-                  return( <SingleComment key={commentino._id} commentino={commentino} />)
+                  return (<SingleComment key={commentino._id} commentino={commentino} />)
                 })
               )}
             </Row>
