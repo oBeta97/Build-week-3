@@ -41,7 +41,7 @@ export const CardCentraleHome = ({
   const [commentList, setCommentList] = useState([])
   // const [curComment, setCurComment] = useState([])
   const [comment, setComment] = useState('');
-  const [savedComment, setSavedComment] = useState('');
+  // const [savedComment, setSavedComment] = useState('');
 
   useEffect(() => {
     fetchComment()
@@ -242,7 +242,7 @@ export const CardCentraleHome = ({
                 >
                   <MdOutlineInsertComment className="me-2" />
                   <p className="d-none d-lg-block p-0 m-0 small">Commenta</p>
-                  { commentList.length > 0 ? (<Badge bg="primary" className="small">!</Badge>) : ""}
+                  { commentList.length > 0 ? (<Badge bg="primary" className="small rounded-5">{commentList.length}</Badge>) : ""}
                 </Button>
 
                 {/* ------ lavora qui diommerda -------------------------------------------------------------------------------------------------------- */}
