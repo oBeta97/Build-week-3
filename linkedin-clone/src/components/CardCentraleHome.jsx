@@ -1,13 +1,4 @@
-import {
-  Container,
-  Row,
-  Col,
-  Button,
-  Modal,
-  Form,
-  Alert,
-  Badge,
-} from "react-bootstrap";
+import { Container, Row, Col, Button, Modal, Form, Alert } from "react-bootstrap";
 import { BsHandThumbsUp } from "react-icons/bs";
 import { MdOutlineInsertComment } from "react-icons/md";
 import { GoArrowSwitch } from "react-icons/go";
@@ -16,19 +7,12 @@ import { FcLike } from "react-icons/fc";
 import { BiWorld } from "react-icons/bi";
 import { FaImage, FaPencil } from "react-icons/fa6";
 import { Link } from "react-router-dom";
-import { useEffect, useState } from "react";
+import { useState } from "react";
 import { deletePost, updatePost } from "../modules/postFetches";
 import { addPostImage } from "../modules/imageFetches";
-import { getComments, insertComment } from "../modules/commentFetches";
-import SingleComment from "./SingleComment";
 
+export const CardCentraleHome = ({ post, isMyPost, profileData, afterPostCreation, lite = false }) => {
 
-export const CardCentraleHome = ({
-  post,
-  isMyPost,
-  profileData,
-  afterPostCreation,
-}) => {
   const [showModal, setShowModal] = useState(false);
   const [showImagePostModal, setShowImagePostModal] = useState(false);
   const [postData, setPostData] = useState(post);
@@ -41,7 +25,7 @@ export const CardCentraleHome = ({
   const [commentList, setCommentList] = useState([])
   // const [curComment, setCurComment] = useState([])
   const [comment, setComment] = useState('');
-  // const [savedComment, setSavedComment] = useState('');
+  const [savedComment, setSavedComment] = useState('');
 
   useEffect(() => {
     fetchComment()
@@ -87,56 +71,61 @@ export const CardCentraleHome = ({
 
     const differenceInMs = now - new Date(datetime);
     return Math.floor(differenceInMs / (1000 * 60));
-  };
+  }
+
 
   const onFileChange = (event) => {
     setUploadError(false);
-    setFileToUpload(event.target.files[0]);
-  };
+    setFileToUpload(event.target.files[0])
+  }
 
   const uploadImage = () => {
     if (!fileToUpload) {
-      setUploadError(true);
+      setUploadError(true)
       return;
     }
     const formDataImg = new FormData();
     formDataImg.append("post", fileToUpload);
 
-    addPostImage(post.user, formDataImg, post._id).then(() => {
-      handleDeleteClose();
-      afterPostCreation();
-    });
-  };
+
+    addPostImage(post.user, formDataImg, post._id).
+      then(() => {
+        handleDeleteClose();
+        afterPostCreation();
+      })
+  }
 
   const handleClose = () => {
     setShowModal(false);
-  };
+  }
 
   const handleDeleteClose = () => {
     setShowImagePostModal(false);
-  };
+  }
 
   const viewModal = () => {
     setShowModal(true);
-  };
+  }
 
   const viewPostImageModal = () => {
     setShowImagePostModal(true);
-  };
+  }
 
   const changePost = () => {
-    updatePost(postData.user, postData).then(() => {
-      handleClose();
-      afterPostCreation();
-    });
-  };
+    updatePost(postData.user, postData).
+      then(() => {
+        handleClose();
+        afterPostCreation();
+      })
+  }
 
   const removePost = () => {
-    deletePost(postData.user, postData._id).then(() => {
-      handleClose();
-      afterPostCreation();
-    });
-  };
+    deletePost(postData.user, postData._id).
+      then(() => {
+        handleClose();
+        afterPostCreation();
+      })
+  }
 
   return (
     <>
@@ -242,7 +231,7 @@ export const CardCentraleHome = ({
                 >
                   <MdOutlineInsertComment className="me-2" />
                   <p className="d-none d-lg-block p-0 m-0 small">Commenta</p>
-                  { commentList.length > 0 ? (<Badge bg="primary" className="small rounded-5">{commentList.length}</Badge>) : ""}
+                  { commentList.length > 0 ? (<Badge bg="primary" className="small">!</Badge>) : ""}
                 </Button>
 
                 {/* ------ lavora qui diommerda -------------------------------------------------------------------------------------------------------- */}
@@ -315,86 +304,94 @@ export const CardCentraleHome = ({
               </Row> */}
           </Container>
 
-          {/* !!! IMAGE POST !!! */}
-          <Modal show={showImagePostModal} onHide={handleDeleteClose}>
-            <Modal.Header closeButton>
-              <Modal.Title>Inserisci una immagine al post</Modal.Title>
-            </Modal.Header>
-            <Modal.Body>
-              <div className="d-flex flex-column gap-3 align-items-center">
-                <input type="file" onChange={onFileChange} />
+            {/* !!! IMAGE POST !!! */}
+            <Modal show={showImagePostModal} onHide={handleDeleteClose}>
+              <Modal.Header closeButton>
+                <Modal.Title>Inserisci una immagine al post</Modal.Title>
+              </Modal.Header>
+              <Modal.Body>
 
-                {fileToUpload ? (
-                  <>
-                    <h5>Immagine che verrà caricata:</h5>
-                    <img
-                      src={URL.createObjectURL(fileToUpload)}
-                      alt="Immagine da caricare"
-                      style={{
-                        maxHeight: "20em",
-                        maxWidth: "20em",
-                        display: "block",
-                        width: "auto",
-                      }}
-                    />
-                  </>
-                ) : (
-                  ""
-                )}
+                <div className="d-flex flex-column gap-3 align-items-center">
+                  <input type="file" onChange={onFileChange} />
 
-                {uploadError ? (
-                  <Alert variant="danger">Errore nel caricamento</Alert>
-                ) : (
-                  ""
-                )}
-              </div>
-            </Modal.Body>
-            <Modal.Footer className="d-flex justify-content-between">
-              <Button variant="secondary" onClick={handleDeleteClose}>
-                Chiudi
-              </Button>
+                  {
+                    fileToUpload ? (
+                      <>
+                        <h5>Immagine che verrà caricata:</h5>
+                        <img
+                          src={URL.createObjectURL(fileToUpload)}
+                          alt="Immagine da caricare"
+                          style={{
+                            maxHeight: '20em',
+                            maxWidth: '20em',
+                            display: 'block',
+                            width: 'auto'
+                          }}
+                        />
+                      </>
+                    ) : ""
+                  }
 
-              <Button variant="primary" onClick={uploadImage}>
-                Aggiungi
-              </Button>
-            </Modal.Footer>
-          </Modal>
+                  {
+                    uploadError ? (
+                      <Alert variant='danger'>
+                        Errore nel caricamento
+                      </Alert>
+                    ) : ""
+                  }
+                </div>
 
-          {/* !!! CHANGE POST !!! */}
-          <Modal show={showModal} onHide={handleClose}>
-            <Modal.Header closeButton>
-              <Modal.Title>Modifica Post</Modal.Title>
-            </Modal.Header>
-            <Modal.Body>
-              <Form.Label htmlFor="postData">Testo del post</Form.Label>
-              <Form.Control
-                type="text"
-                value={postData.text}
-                onChange={(e) =>
-                  setPostData({ ...postData, text: e.target.value })
-                }
-              />
-            </Modal.Body>
-            <Modal.Footer className="d-flex justify-content-between">
-              <Button variant="secondary" onClick={handleClose}>
-                Chiudi
-              </Button>
-              <div className="d-flex gap-2">
-                <Button variant="danger" onClick={removePost}>
-                  Elimina post
+              </Modal.Body>
+              <Modal.Footer className="d-flex justify-content-between">
+                <Button variant="secondary" onClick={handleDeleteClose}>
+                  Chiudi
                 </Button>
-                <Button variant="primary" onClick={changePost}>
-                  Aggiorna post
+
+                <Button variant="primary" onClick={uploadImage}>
+                  Aggiungi
                 </Button>
-              </div>
-            </Modal.Footer>
-          </Modal>
-        </>
-      ) : (
-        ""
-      )}
+              </Modal.Footer>
+            </Modal>
+
+            {/* !!! CHANGE POST !!! */}
+            <Modal show={showModal} onHide={handleClose}>
+              <Modal.Header closeButton>
+                <Modal.Title>Modifica Post</Modal.Title>
+              </Modal.Header>
+              <Modal.Body>
+
+                <Form.Label htmlFor="postData">Testo del post</Form.Label>
+                <Form.Control
+                  type="text"
+                  value={postData.text}
+                  onChange={(e) => setPostData({ ...postData, text: e.target.value })}
+                />
+
+              </Modal.Body>
+              <Modal.Footer className="d-flex justify-content-between">
+                <Button variant="secondary" onClick={handleClose}>
+                  Chiudi
+                </Button>
+                <div className="d-flex gap-2">
+                  <Button variant="danger" onClick={removePost}>
+                    Elimina post
+                  </Button>
+                  <Button variant="primary" onClick={changePost}>
+                    Aggiorna post
+                  </Button>
+                </div>
+              </Modal.Footer>
+            </Modal>
+
+
+          </>
+        ) : ""
+      }
     </>
+
+
   );
 };
+
 
 export default CardCentraleHome;

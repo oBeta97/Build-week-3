@@ -19,10 +19,10 @@ const ActivityCard = () => {
         getProfile(URLParams.profileId).
             then(profile => {
                 setProfile(profile);
-                getPosts(URLParams.profileId).
+                getPosts().
                     then((posts) => {
                         console.log(posts);
-                        setPostList(posts.sort(sortPost).slice(0, 3))
+                        setPostList(posts.filter((post) => post.user._id === profile._id).sort(sortPost).slice(0, 3))
                     })
             })
     }
