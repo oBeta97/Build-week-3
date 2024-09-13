@@ -6,6 +6,7 @@ import {
   Modal,
   Form,
   Alert,
+  InputGroup,
 } from "react-bootstrap";
 import { BsHandThumbsUp } from "react-icons/bs";
 import { MdOutlineInsertComment } from "react-icons/md";
@@ -15,11 +16,12 @@ import { FcLike } from "react-icons/fc";
 import { BiWorld } from "react-icons/bi";
 import { FaImage, FaPencil } from "react-icons/fa6";
 import { Link } from "react-router-dom";
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import { deletePost, updatePost } from "../modules/postFetches";
 import { addPostImage } from "../modules/imageFetches";
-import { GiBombingRun } from "react-icons/gi";
-import { FaDna } from "react-icons/fa";
+import { getComments, insertComment } from "../modules/commentFetches";
+import SingleComment from "./SingleComment";
+
 
 export const CardCentraleHome = ({
   post,
@@ -36,10 +38,35 @@ export const CardCentraleHome = ({
 
   // parte di luca :)
   const [showComment, setShowComment] = useState(false);
+  const [commentList, setCommentList] = useState([])
+  // const [curComment, setCurComment] = useState([])
+  const [comment, setComment] = useState('');
+  const [savedComment, setSavedComment] = useState('');
+  
+  useEffect(() => {
+    fetchComment()
+  // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, [])
 
   const handleComment = () => {
     setShowComment(!showComment);
   };
+
+  const fetchComment = () => {
+    getComments(post._id).then((res) =>
+      setCommentList(res)
+  )
+  }
+
+  const handleCommentChange = (e) => {
+    setComment(e.target.value);
+  };
+
+
+  const postComment = () => {
+    setSavedComment(comment);
+    setComment('');
+  }
   // ---------------------------------------
 
   const minutesAgo = (datetime) => {
@@ -219,40 +246,34 @@ export const CardCentraleHome = ({
               </Col>
             </Row>
 
+            {/* MAP QUI, AD OGNI COSO DA UN COSO */}
+
             <Row
               className={`border-top comment-row ${
                 showComment ? "show" : "hide"
               }`}
             >
+              <Col xs={12}>
+
+              <form className="d-flex py-2 pe-2">
+      <input
+        type="text"
+        id="textInput"
+        placeholder="Scrivi qui il tuo commento..."
+        className="form-control"
+        value={comment}
+        onChange={handleCommentChange}
+      />
+
+      <Button variant="outline-dark" className="fw-bold rounded" onClick={postComment}>+</Button>
+
+    </form>
+              </Col>
               {showComment && (
-                <>
-                  <Col xs={2}>
-                    <img
-                      src="https://www.pensionedagatti.it/wp-content/uploads/2017/07/1243768940588_f.jpg"
-                      alt="foto profilo"
-                      className="img-fluid rounded-5 w-75 pt-2"
-                    />
-                  </Col>
-
-                  <Col xs={10} className="text-start">
-                    <div className="d-flex justify-content-between align-items-center">
-                      <div>
-                        <p className="m-0 pb-2">
-                          <span className="fw-bold small">
-                            Francesca Scrotini :
-                          </span>
-                          <br />
-                          <span className="small">Ciao, gran bel post!</span>
-                        </p>
-                      </div>
-
-                      <div className="fs-5">
-                        <GiBombingRun /> &nbsp; &nbsp;
-                        <FaDna />
-                      </div>
-                    </div>
-                  </Col>
-                </>
+                
+                commentList.map((commentino) => {
+                  return( <SingleComment key={commentino._id} commentino={commentino} />)
+                })
               )}
             </Row>
 
