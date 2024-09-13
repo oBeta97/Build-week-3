@@ -24,21 +24,21 @@ const FetchTest = () => {
 
     // 66e406dc80067d00151243e0
 
-    deleteComments('66e405c080067d00151243dd').then(()=>{
+    // deleteComments('66e405c080067d00151243dd').then(()=>{
 
-        getComments('66e3fbd880067d00151243cc').then((res) =>
-            console.log('FETCH RESULT', res)
-        )
-    })
+    //     getComments('66e3fbd880067d00151243cc').then((res) =>
+    //         console.log('FETCH RESULT', res)
+    //     )
+    // })
 
 
 
 
     // insertComment(obj,).then(()=>{
 
-    //     getComments('66e3fbd880067d00151243cc').then((res) =>
-    //         console.log('FETCH RESULT', res)
-    //     )
+        getComments().then((res) =>
+            console.log('FETCH RESULT', res)
+        )
     // })
 
 
