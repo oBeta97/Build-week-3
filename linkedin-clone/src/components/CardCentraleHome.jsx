@@ -6,6 +6,7 @@ import {
   Modal,
   Form,
   Alert,
+  Badge,
 } from "react-bootstrap";
 import { BsHandThumbsUp } from "react-icons/bs";
 import { MdOutlineInsertComment } from "react-icons/md";
@@ -241,6 +242,7 @@ export const CardCentraleHome = ({
                 >
                   <MdOutlineInsertComment className="me-2" />
                   <p className="d-none d-lg-block p-0 m-0 small">Commenta</p>
+                  { commentList.length > 0 ? (<Badge bg="primary" className="small">!</Badge>) : ""}
                 </Button>
 
                 {/* ------ lavora qui diommerda -------------------------------------------------------------------------------------------------------- */}
